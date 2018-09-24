@@ -47,7 +47,7 @@ bool HashTable::erase(const Key &k) {
 
 bool HashTable::insert(const Key &k,  Value &v) {
     int hash = hashCalculation(k);
-    std::cout<< std::endl << hash << " " << k;
+  //  std::cout<< std::endl << hash << " " << k;
 
     Value * a = &table[hash];
     while(a->next != NULL){

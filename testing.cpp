@@ -69,31 +69,32 @@ TEST_F(testValue, operatorEqTest){
 
 //test HashTable_insert
 
-::testing::AssertionResult valueEq(Value a, Value b){
-    if(a.getName() == b.getName()) return ::testing::AssertionSuccess();
-    while(a.getNext() != NULL){
-        a = *a.getNext();
-        if(a.getName() == b.getName()) return ::testing::AssertionSuccess();
+::testing::AssertionResult valueEq(Value * a, Value * b){
+    if(a->getName() == b->getName()) return ::testing::AssertionSuccess();
+    while(a->next != NULL){
+        a = a->next;
+        if(a->getName() == b->getName()) return ::testing::AssertionSuccess();
     }
     return ::testing::AssertionFailure();
 
 }
 
 TEST_F(testHashTable, insertTestLessThanHalf){
-    srand(static_cast<unsigned int>(time(NULL)));
+   // srand(static_cast<unsigned int>(time(NULL)));
     int valueSize = 2000;
     Value * v = new Value[valueSize];
     for (int i = 0; i < valueSize; ++i) {
         v[i].edit(randomString(10), rand()%2, rand()%8);
-        std::cout<< std::endl << i << ") #" << h0_.hashCalculation(v[i].getName()) << " " << v[i].getName();
     }
     for (int i = 0; i < valueSize; ++i) {
         EXPECT_TRUE(h0_.insert(v[i].getName(), v[i]));
     }
     for (int i = 0; i < valueSize; ++i) {
-        Value  a = v[i];
-        Value * b = h0_.getTable()[h0_.hashCalculation(v[i].getName())].getNext();
-        EXPECT_TRUE(valueEq(*b,a));
+        Value * a = &v[i];
+        std::cout<< std::endl << i << ") #" << h0_.hashCalculation(v[i].getName()) << " " << v[i].getName() << std::endl;
+        Value * b = &h0_.getTable()[h0_.hashCalculation(a->getName())];
+
+        EXPECT_TRUE(valueEq(b,a));
     }
 }
 

@@ -6,40 +6,34 @@
 #define HASHTABLE_HASHTABLE_H
 
 #include <string>
-#include <queue>        // подключаем заголовочный файл очереди
-#include <string>
 #include "stdio.h"
 #include "value.h"
-#define MAP std::vector<std::vector<TYPE> > // вектор очередей ТИПА
+#include "vector"
+#define MAP std::vector<std::vector<std::pair<const Key, const TYPE>>>
 
 typedef unsigned long Hash;
 
 template<class TYPE>
 class HashTable {
 private:
-    unsigned long tableSize;
-    std::vector<TYPE> tableValues;
-    std::vector<Key> tableKeys;
+
+    std::pair<unsigned int, unsigned int> tableSize; //first -- in all, second -- now
     MAP table;
 public:
-    Value * getTable();
+
     Hash hashCalculate(const Key& k);
     HashTable();
     void swap(HashTable &b);
     bool insert(const Key &k, const TYPE &v);
-
+    void resizeHashTable();
 
 };
 
 template<class TYPE>
 HashTable<TYPE>::HashTable(){
-    tableSize = 10;
-    table.resize(tableSize);
-}
-
-template<class TYPE>
-Value *HashTable<TYPE>::getTable() {
-    return nullptr;
+    tableSize.first = 10;
+    tableSize.second = 0;
+    table.resize(tableSize.first);
 }
 
 template<class TYPE>
@@ -52,8 +46,10 @@ void HashTable<TYPE>::swap(HashTable &b) {
 template<class TYPE>
 bool HashTable<TYPE>::insert(const Key &k, const TYPE &v) {
     Hash hashV = hashCalculate(k);
-    this->table[hashV].push_back(v);
-    return false;
+    this->table[hashV].push_back(make_pair(k, v));
+    if(++tableSize.second > tableSize.first/2)
+        resizeHashTable();
+    return true;
 }
 
 template<class TYPE>
@@ -62,6 +58,16 @@ Hash HashTable<TYPE>::hashCalculate(const Key &key) {
     for(char i : key){
         hash = i + (hash << 6) + (hash << 16) - hash;
     }
-    return hash % tableSize;
+    return hash % tableSize.first;
 }
+
+template<class TYPE>
+void HashTable<TYPE>::resizeHashTable() {
+    tableSize.first*=2;
+    MAP newTable;
+    newTable.resize(tableSize.first);
+
+
+}
+
 #endif //HASHTABLE_HASHTABLE_H

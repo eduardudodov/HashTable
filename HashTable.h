@@ -8,55 +8,60 @@
 #include <string>
 #include <queue>        // подключаем заголовочный файл очереди
 #include <string>
+#include "stdio.h"
 #include "value.h"
+#define MAP std::vector<std::vector<TYPE> > // вектор очередей ТИПА
 
+typedef unsigned long Hash;
 
-
+template<class TYPE>
 class HashTable {
 private:
-    int tableSize;
-    Value * table;
-    int fullness;
-
-
+    unsigned long tableSize;
+    std::vector<TYPE> tableValues;
+    std::vector<Key> tableKeys;
+    MAP table;
 public:
-    int getTableSize(){
-        return tableSize;
-    }
     Value * getTable();
-    unsigned int hashCalculation(const Key& k);
-    void resize();
-
+    Hash hashCalculate(const Key& k);
     HashTable();
-    ~HashTable();
+    void swap(HashTable &b);
+    bool insert(const Key &k, const TYPE &v);
 
-    HashTable(const HashTable& b);
-    // Обменивает значения двух хэш-таблиц.
-    // Подумайте, зачем нужен этот метод, при наличии стандартной функции
-    // std::swap.
-    void swap(HashTable& b);
-    HashTable& operator=(const HashTable& b);
-    // Очищает контейнер.
-    void clear();
-    // Удаляет элемент по заданному ключу.
-    bool erase(const Key& k);
-    // Вставка в контейнер. Возвращаемое значение - успешность вставки.
-    bool insert(const Key& k, Value& v);
-    // Проверка наличия значения по заданному ключу.
-    bool contains(const Key& k) const;
-    // Возвращает значение по ключу. Небезопасный метод.
-    // В случае отсутствия ключа в контейнере, следует вставить в контейнер
-    // значение, созданное конструктором по умолчанию и вернуть ссылку на него.
-    Value& operator[](const Key& k);
-    // Возвращает значение по ключу. Бросает исключение при неудаче.
-    Value& at(const Key& k);
-    const Value& at(const Key& k) const;
-    size_t size() const;
-    bool empty() const;
-    friend bool operator==(const HashTable & a, const HashTable & b);
-    friend bool operator!=(const HashTable & a, const HashTable & b);
 
 };
 
+template<class TYPE>
+HashTable<TYPE>::HashTable(){
+    tableSize = 10;
+    table.resize(tableSize);
+}
 
+template<class TYPE>
+Value *HashTable<TYPE>::getTable() {
+    return nullptr;
+}
+
+template<class TYPE>
+void HashTable<TYPE>::swap(HashTable &b) {
+    auto tmp = this->table;
+    this->table = b.table;
+    b.table = this->table;
+}
+
+template<class TYPE>
+bool HashTable<TYPE>::insert(const Key &k, const TYPE &v) {
+    Hash hashV = hashCalculate(k);
+    this->table[hashV].push_back(v);
+    return false;
+}
+
+template<class TYPE>
+Hash HashTable<TYPE>::hashCalculate(const Key &key) {
+    Hash hash = 137;
+    for(char i : key){
+        hash = i + (hash << 6) + (hash << 16) - hash;
+    }
+    return hash % tableSize;
+}
 #endif //HASHTABLE_HASHTABLE_H

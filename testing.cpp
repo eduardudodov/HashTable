@@ -1,13 +1,8 @@
-
-#include <gtest/gtest.h>
 #include "HashTable.h"
-
-class testHashTable : public ::testing::Test {
-protected:
-    virtual void SetUp() {
-    }
-    HashTable h0_;
-};
+#include "value.h"
+#include "gtest/gtest.h"
+#include <cstdlib>
+#define N 1000
 
 Key randomString(size_t length) {
     auto randchar = []() -> char {
@@ -23,78 +18,44 @@ Key randomString(size_t length) {
     return str;
 }
 
-class testValue : public ::testing::Test {
-protected:
-    virtual void SetUp() {
+HashTable<Value> createRandHashTable(){
+    srand(static_cast<unsigned int>(time(NULL)));
+    Value v[N];
+    for(int i = 0; i < N; ++i )
+        v[i].edit(randomString(10), rand()%3, rand()%5);
+
+    HashTable<Value> h_0;
+    for(int i = 0; i < N; ++i){
+        h_0.insert(v[i].getName(), v[i]);
     }
-    Value v[100];
-};
+    return h_0;
+}
 
+TEST(hashTableTest, insertTest){
 
-
-TEST_F(testHashTable, resizeTest){
-    int i = 5; int size = 10;
-    while(i--) {
-        h0_.resize();
-        size*=2;
-        EXPECT_EQ(size, h0_.getTableSize());
+    HashTable<Value> h_0 = createRandHashTable();
+    for(int i = 0; i < N; ++i){
+        for(int j = 0; j < h_0.getTable()[i].size(); ++j ) {
+            EXPECT_EQ(i, h_0.hashCalculate(h_0.getTable()[i][j].first));
+        }
     }
 
 }
 
-//test value filling
-TEST_F(testValue, addToValueTest) {
-    for (int i = 0; i < 100; ++i) {
-        v[i].edit(randomString(10), rand()%2, rand()%8);
+TEST(hashTableTest, clearTest){
+    HashTable<Value> h_0 = createRandHashTable();
+    h_0.clear();
+    int cnt = 0;
+    for(int i = 0; i < h_0.getTable().size(); ++i){
+        for(int j = 0; j < h_0.getTable()[i].size(); ++i) {
+            ++cnt;
+        }
     }
-
-    for (int i = 0; i < 100; ++i) {
-        v[i].addNext(&v[i + 1]);
-    }
-    for (int i = 0; i < 100; ++i) {
-        std::string aStr = v[i].getNext()->getName();
-        std::string bStr = v[i+1].getName();
-        EXPECT_EQ(aStr, bStr);
-    }
+    EXPECT_EQ(cnt, 0);
 }
 
-//test value operator =
-TEST_F(testValue, operatorEqTest){
-    for (int i = 0; i < 100000; i+=2) {
-        v[i].edit(randomString(1000), rand()%2, rand()%8);
-        v[i+1] = v[i];
-        EXPECT_EQ(v[i + 1].getName(), v[i].getName());
-    }
+TEST(hashTableTest, eraseTest){
+    HashTable<Value> h_0 = createRandHashTable();
+   // while()
+   // h_0.getTable()[rand()%N][0]
 }
-
-//test HashTable_insert
-
-::testing::AssertionResult valueEq(Value * a, Value * b){
-    if(a->getName() == b->getName()) return ::testing::AssertionSuccess();
-    while(a->next != NULL){
-        a = a->next;
-        if(a->getName() == b->getName()) return ::testing::AssertionSuccess();
-    }
-    return ::testing::AssertionFailure();
-
-}
-
-TEST_F(testHashTable, insertTestLessThanHalf){
-   // srand(static_cast<unsigned int>(time(NULL)));
-    int valueSize = 2000;
-    Value * v = new Value[valueSize];
-    for (int i = 0; i < valueSize; ++i) {
-        v[i].edit(randomString(10), rand()%2, rand()%8);
-    }
-    for (int i = 0; i < valueSize; ++i) {
-        EXPECT_TRUE(h0_.insert(v[i].getName(), v[i]));
-    }
-    for (int i = 0; i < valueSize; ++i) {
-        Value * a = &v[i];
-        std::cout<< std::endl << i << ") #" << h0_.hashCalculation(v[i].getName()) << " " << v[i].getName() << std::endl;
-        Value * b = &h0_.getTable()[h0_.hashCalculation(a->getName())];
-
-        EXPECT_TRUE(valueEq(b,a));
-    }
-}
-

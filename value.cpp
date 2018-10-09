@@ -47,7 +47,9 @@ Key Value::getName() {
     return this->name;
 }
 
+Value::~Value() {
 
+}
 
 
 int Value::getAge() {
@@ -56,6 +58,12 @@ int Value::getAge() {
 
 int Value::getWeight() {
     return this->weight;
+}
+
+Value::Value(Key name, unsigned int age, unsigned int weight) {
+    this->name = name;
+    this->age = age;
+    this->weight = weight;
 }
 
 

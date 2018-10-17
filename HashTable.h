@@ -42,6 +42,8 @@ public:
 
     bool contains(const Key &k) const;
 
+    std::pair<Key, TYPE> * findValueInHashQueue(Hash hash);
+
 };
 
 template<class TYPE>
@@ -106,27 +108,46 @@ void HashTable<TYPE>::clear() {
 }
 
 template<class TYPE>
+std::pair<Key, TYPE> * HashTable<TYPE>::findValueInHashQueue(Hash hash){
+    std::vector<std::pair<const Key, const TYPE>> * line = &table[hash];
+    for(int i = 0; i < line->size(); ++i){
+        //if(hashCalculate(line->back().first) == hash)
+            //return line[i];
+
+    }
+    throw "not found";
+}
+
+
+
+template<class TYPE>
 bool HashTable<TYPE>::erase(const Key &k) {
     Hash hashKey = hashCalculate(k);
     if (table[hashKey].size() == 0) return false;
-
     if (table[hashKey].size() == 1) {
-        if (table[hashKey].back().first != k)
+        if (table[hashKey].back().first == k)
             table[hashKey].pop_back();
         return true;
     } else {
-        for (int i = 0; i < table[hashKey].size(); ++i) {
-            if (table[hashKey][i].first == k) {
-                table[hashKey].erase(table[hashKey].begin() + i);
-                return true;
-            }
+        try {
+            findValueInHashQueue(hashKey);
+        } catch (...) {
+            return false;
         }
-        return false;
     }
+    return false;
 }
 
 template<class TYPE>
 bool HashTable<TYPE>::contains(const Key &k) const {
+    Hash hashKey = hashCalculate(k);
+    if (table[hashKey].size() == 0) return false;
+
+    if (table[hashKey].size() == 1) {
+        for(int i = 0; i < table[hashKey].size(); ++i){
+            if(table[hashKey][i] == k)
+                return true;
+        }
     return false;
 }
 

@@ -1,5 +1,5 @@
-#include "HashTable.h"
-#include "value.h"
+#include "HashTable.hpp"
+#include "value.hpp"
 #include "gtest/gtest.h"
 #include <cstdlib>
 #define N 100
@@ -32,12 +32,14 @@ HashTable<Value> createRandHashTable(){
 }
 
 TEST(hashTableTest, insertTest){
+
     HashTable<Value> h_0 = createRandHashTable();
     for(int i = 0; i < N; ++i){
         for(int j = 0; j < h_0.getTable()[i].size(); ++j ) {
             EXPECT_EQ(i, h_0.hashCalculate(h_0.getTable()[i][j].first));
         }
     }
+
 }
 
 TEST(hashTableTest, clearTest){
@@ -52,19 +54,7 @@ TEST(hashTableTest, clearTest){
     EXPECT_EQ(cnt, 0);
 }
 
-TEST(hashTableTest, eraseTest){
-    std::vector<Key> keys;
-    HashTable<Value> h_0 = createRandHashTable();
-    for(int i = 0; i < h_0.getTable().size(); ++i){
-        for(int j = 0; j < h_0.getTable()[i].size(); ++i) {
-            keys.push_back(h_0.getTable()[i][j].first);
-        }
-    }
-    while (keys.size() > 0) {
-        EXPECT_TRUE(h_0.erase(keys.back()));
-        keys.pop_back();
-    }
-}
+
 
 TEST(hashTableTest, containTest) {
     std::vector<Key> keys;
@@ -80,4 +70,81 @@ TEST(hashTableTest, containTest) {
     }
 }
 
+TEST(hashTableTest, emptyTest) {
+    HashTable<Value> h_0 = createRandHashTable();
+    HashTable<Value> h_1;
+    EXPECT_FALSE(h_0.empty());
+    EXPECT_TRUE(h_1.empty());
+}
 
+TEST(hashTableTest, sizeTest) {
+    HashTable<Value> h_0 = createRandHashTable();
+    EXPECT_EQ(h_0.size(),N);
+}
+
+
+TEST(hashTableTest, operatorParenthesesTest){
+    std::vector<Key> keys;
+    HashTable<Value> h_0 = createRandHashTable();
+    for (int i = 0; i < h_0.getTable().size(); ++i) {
+        for (int j = 0; j < h_0.getTable()[i].size(); ++i) {
+            keys.push_back(h_0.getTable()[i][j].first);
+        }
+    }
+
+    while (keys.size() > 0) {
+        EXPECT_EQ(h_0[keys.back()].getName(), keys.back());
+        keys.pop_back();
+    }
+    for(int i = 0; i < 1000; ++i) {
+        Key randStr = randomString(10);
+        EXPECT_EQ(h_0[randStr].getName(), "HEAD");
+    }
+
+}
+
+TEST(hashTableTest, atTest){
+    std::vector<Key> keys;
+    HashTable<Value> h_0 = createRandHashTable();
+    for (int i = 0; i < h_0.getTable().size(); ++i) {
+        for (int j = 0; j < h_0.getTable()[i].size(); ++i) {
+            keys.push_back(h_0.getTable()[i][j].first);
+        }
+    }
+
+    while (keys.size() > 0) {
+        EXPECT_EQ(h_0.at(keys.back()).getName(), keys.back());
+        keys.pop_back();
+    }
+    for(int i = 0; i < 1000; ++i) {
+        Key randStr = randomString(10);
+        EXPECT_THROW(h_0.at(randStr).getName(), std::invalid_argument);
+    }
+
+}
+
+TEST(hashTableTest, swapTest) {
+    std::vector<Key> keys_0, keys_1;
+    HashTable<Value> h_0 = createRandHashTable();
+    HashTable<Value> h_1 = createRandHashTable();
+    for (int i = 0; i < h_0.getTable().size(); ++i) {
+        for (int j = 0; j < h_0.getTable()[i].size(); ++i) {
+            keys_0.push_back(h_0.getTable()[i][j].first);
+        }
+    }
+    for (int i = 0; i < h_1.getTable().size(); ++i) {
+        for (int j = 0; j < h_1.getTable()[i].size(); ++i) {
+            keys_1.push_back(h_1.getTable()[i][j].first);
+        }
+    }
+    h_0.swap(h_1);
+    while (!keys_0.empty()){
+        EXPECT_TRUE(h_1.contains(keys_0.back()));
+        keys_0.pop_back();
+    }
+
+    while (!keys_1.empty()){
+        EXPECT_TRUE(h_0.contains(keys_1.back()));
+        keys_1.pop_back();
+    }
+}

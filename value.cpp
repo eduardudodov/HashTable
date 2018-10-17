@@ -3,7 +3,7 @@
 //
 
 #include <iostream>
-#include "value.h"
+#include "value.hpp"
 
 Value &Value::operator=(const Value &b) {
     this->weight=b.weight;

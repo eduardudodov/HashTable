@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-10-17 19:59:15</td>
+            <td class="headerValue">2018-10-18 18:39:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">27</td>
@@ -510,7 +510,7 @@
 <span class="lineNum">     448 </span>            : _Tp*
 <span class="lineNum">     449 </span>            : addressof(_Tp&amp; __x) _NOEXCEPT
 <span class="lineNum">     450 </span>            : {
-<span class="lineNum">     451 </span><span class="lineCov">      19629 :     return __builtin_addressof(__x);</span>
+<span class="lineNum">     451 </span><span class="lineCov">      26307 :     return __builtin_addressof(__x);</span>
 <span class="lineNum">     452 </span>            : }
 <span class="lineNum">     453 </span>            : 
 <span class="lineNum">     454 </span>            : #else
@@ -2352,7 +2352,7 @@
 <span class="lineNum">    2290 </span>            : move(_Tp&amp;&amp; __t) _NOEXCEPT
 <span class="lineNum">    2291 </span>            : {
 <span class="lineNum">    2292 </span>            :     typedef typename remove_reference&lt;_Tp&gt;::type _Up;
-<span class="lineNum">    2293 </span><span class="lineCov">      52174 :     return static_cast&lt;_Up&amp;&amp;&gt;(__t);</span>
+<span class="lineNum">    2293 </span><span class="lineCov">      61546 :     return static_cast&lt;_Up&amp;&amp;&gt;(__t);</span>
 <span class="lineNum">    2294 </span>            : }
 <span class="lineNum">    2295 </span>            : 
 <span class="lineNum">    2296 </span>            : template &lt;class _Tp&gt;
@@ -2360,7 +2360,7 @@
 <span class="lineNum">    2298 </span>            : _Tp&amp;&amp;
 <span class="lineNum">    2299 </span>            : forward(typename remove_reference&lt;_Tp&gt;::type&amp; __t) _NOEXCEPT
 <span class="lineNum">    2300 </span>            : {
-<span class="lineNum">    2301 </span><span class="lineCov">    8706557 :     return static_cast&lt;_Tp&amp;&amp;&gt;(__t);</span>
+<span class="lineNum">    2301 </span><span class="lineCov">   11972614 :     return static_cast&lt;_Tp&amp;&amp;&gt;(__t);</span>
 <span class="lineNum">    2302 </span>            : }
 <span class="lineNum">    2303 </span>            : 
 <span class="lineNum">    2304 </span>            : template &lt;class _Tp&gt;
@@ -4651,10 +4651,10 @@
 <span class="lineNum">    4589 </span>            : swap(_Tp&amp; __x, _Tp&amp; __y) _NOEXCEPT_(is_nothrow_move_constructible&lt;_Tp&gt;::value &amp;&amp;
 <span class="lineNum">    4590 </span>            :                                     is_nothrow_move_assignable&lt;_Tp&gt;::value)
 <span class="lineNum">    4591 </span>            : {
-<span class="lineNum">    4592 </span><span class="lineCov">      13665 :     _Tp __t(_VSTD::move(__x));</span>
-<span class="lineNum">    4593 </span><span class="lineCov">      13665 :     __x = _VSTD::move(__y);</span>
-<span class="lineNum">    4594 </span><span class="lineCov">      13665 :     __y = _VSTD::move(__t);</span>
-<span class="lineNum">    4595 </span><span class="lineCov">      13665 : }</span>
+<span class="lineNum">    4592 </span><span class="lineCov">      16029 :     _Tp __t(_VSTD::move(__x));</span>
+<span class="lineNum">    4593 </span><span class="lineCov">      16029 :     __x = _VSTD::move(__y);</span>
+<span class="lineNum">    4594 </span><span class="lineCov">      16029 :     __y = _VSTD::move(__t);</span>
+<span class="lineNum">    4595 </span><span class="lineCov">      16029 : }</span>
 <span class="lineNum">    4596 </span>            : 
 <span class="lineNum">    4597 </span>            : template&lt;class _Tp, size_t _Np&gt;
 <span class="lineNum">    4598 </span>            : inline _LIBCPP_INLINE_VISIBILITY

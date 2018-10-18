@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-10-17 19:59:15</td>
+            <td class="headerValue">2018-10-18 18:39:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -71,32 +71,20 @@
 <span class="lineNum">       9 </span>            : 
 <a name="10"><span class="lineNum">      10 </span>            : typedef std::string Key;</a>
 <span class="lineNum">      11 </span>            : 
-<span class="lineNum">      12 </span><span class="lineCov">     700346 : class Value {</span>
+<span class="lineNum">      12 </span><span class="lineCov">     959850 : class Value {</span>
 <span class="lineNum">      13 </span>            : private:
 <span class="lineNum">      14 </span>            :     Key name;
 <span class="lineNum">      15 </span>            :     unsigned age;
 <span class="lineNum">      16 </span>            :     unsigned weight;
-<span class="lineNum">      17 </span>            : 
-<span class="lineNum">      18 </span>            : 
-<span class="lineNum">      19 </span>            : public:
-<span class="lineNum">      20 </span>            :     Value(Key name, unsigned int age, unsigned int weight);
-<span class="lineNum">      21 </span>            :     void edit(Key name, int age, int weight);
-<span class="lineNum">      22 </span>            :     Value();
-<span class="lineNum">      23 </span>            :     //Value(Key name, int age, int weight);
-<span class="lineNum">      24 </span>            :     Value&amp; operator=(const Value&amp; b);
-<span class="lineNum">      25 </span>            :     void addNext(Value * next);
-<span class="lineNum">      26 </span>            :     Value * getNext();
-<span class="lineNum">      27 </span>            :     Key getName();
-<span class="lineNum">      28 </span>            :     int getAge();
-<span class="lineNum">      29 </span>            :     int getWeight();
-<span class="lineNum">      30 </span>            : 
-<span class="lineNum">      31 </span>            :     virtual ~Value();
-<span class="lineNum">      32 </span>            : 
-<span class="lineNum">      33 </span>            : 
-<span class="lineNum">      34 </span>            :     Value * next;
-<span class="lineNum">      35 </span>            : };
-<span class="lineNum">      36 </span>            : 
-<span class="lineNum">      37 </span>            : #endif //HASHTABLE_VALUE_H
+<span class="lineNum">      17 </span>            : public:
+<span class="lineNum">      18 </span>            :     Value();
+<span class="lineNum">      19 </span>            :     void edit(Key name, int age, int weight);
+<span class="lineNum">      20 </span>            :     Value&amp; operator=(const Value&amp; b);
+<span class="lineNum">      21 </span>            :     Key getName() const;
+<span class="lineNum">      22 </span>            :     friend bool operator==(const Value &amp; a, const Value &amp; b);
+<span class="lineNum">      23 </span>            : };
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #endif //HASHTABLE_VALUE_H
 </pre>
       </td>
     </tr>

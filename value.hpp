@@ -14,24 +14,12 @@ private:
     Key name;
     unsigned age;
     unsigned weight;
-
-
 public:
-    Value(Key name, unsigned int age, unsigned int weight);
-    void edit(Key name, int age, int weight);
     Value();
-    //Value(Key name, int age, int weight);
+    void edit(Key name, int age, int weight);
     Value& operator=(const Value& b);
-    void addNext(Value * next);
-    Value * getNext();
-    Key getName();
-    int getAge();
-    int getWeight();
-
-    virtual ~Value();
-
-
-    Value * next;
+    Key getName() const;
+    friend bool operator==(const Value & a, const Value & b);
 };
 
 #endif //HASHTABLE_VALUE_H

@@ -12,7 +12,7 @@
 #include "value.hpp"
 #include "vector"
 
-#define MAP std::vector<std::vector<std::pair<Key, TYPE>>>
+#define HASH_TABLE std::vector<std::vector<std::pair<Key, TYPE>>>
 
 typedef unsigned long Hash;
 
@@ -21,7 +21,7 @@ class HashTable {
 private:
 
     std::pair<unsigned int, unsigned int> tableSize; //first -- in all, second -- now
-    MAP table;
+    HASH_TABLE table;
 
 public:
     Hash hashCalculate(const Key &k) const;
@@ -32,11 +32,11 @@ public:
 
     void resizeHashTable();
 
-    MAP getTable();
+    HASH_TABLE getTable() const;
 
     void clear();
 
-    bool erase(const Key &k); //TODO
+    bool erase(const Key &k); 
 
     bool contains(const Key &k) const;
 
@@ -48,21 +48,26 @@ public:
 
     const Value& at(const Key& k) const;
 
-    void swap(HashTable &b); //TODO
+    void swap(HashTable &b);
 
-    HashTable(const HashTable& b); //TODO
+    HashTable(const HashTable& b);
+    friend bool operator== (const HashTable<TYPE> & a, const HashTable<TYPE> & b){
+        return a.tableSize == b.tableSize && a.table == b.table;
+    } //FIXME
 
-    friend bool operator==(const HashTable & a, const HashTable & b); //TODO
+    friend bool operator!=(const HashTable<TYPE> & a, const HashTable<TYPE> & b) {
+        return a.tableSize != b.tableSize && a.table != b.table;
+    } //FIXME
 
-    friend bool operator!=(const HashTable & a, const HashTable & b); //TODO
-
-    HashTable& operator=(const HashTable& b); //TODO
+    void operator=(const HashTable<TYPE>& b);
 
     TYPE& operator[](const Key& k);
 };
 
+
+
 template<class TYPE>
-MAP HashTable<TYPE>::getTable() {
+HASH_TABLE HashTable<TYPE>::getTable() const{
     return table;
 }
 
@@ -72,6 +77,8 @@ HashTable<TYPE>::HashTable() {
     tableSize.second = 0;
     table.resize(tableSize.first);
 }
+
+
 
 template<class TYPE>
 void HashTable<TYPE>::swap(HashTable &b) {
@@ -101,7 +108,7 @@ Hash HashTable<TYPE>::hashCalculate(const Key &key) const {
 template<class TYPE>
 void HashTable<TYPE>::resizeHashTable() {
     tableSize.first *= 2;
-    MAP oldMap = this->table;
+    HASH_TABLE oldMap = this->table;
     table.clear();
     table.resize(tableSize.first);
     for (int i = tableSize.first / 2 - 1; i >= 0; --i) {
@@ -124,21 +131,16 @@ void HashTable<TYPE>::clear() {
 
 template<class TYPE>
 bool HashTable<TYPE>::erase(const Key &k) {
-    Hash hashKey = hashCalculate(k);
-    if (table[hashKey].size() == 0) return false;
-
-    if (table[hashKey].size() == 1) {
-        if (table[hashKey].back().first != k)
-            table[hashKey].pop_back();
+    if(!contains(k)) return false;
+    Hash hash = hashCalculate(k);
+    if(table[hash].size() == 1) {
+        table[hash].pop_back();
         return true;
     } else {
-        for (int i = 0; i < table[hashKey].size(); ++i) {
-            if (table[hashKey][i].first == k) {
-                table[hashKey].erase(table[hashKey].begin() + i);
-                return true;
-            }
-        }
-        return false;
+        int i = 0;
+        while(table[hash][i++].first != k);
+        table[hash].erase(table[hash].begin() + (--i));
+        return true;
     }
 }
 
@@ -211,25 +213,59 @@ Value &HashTable<TYPE>::at(const Key &k) {
 
 template<class TYPE>
 const Value &HashTable<TYPE>::at(const Key &k) const {
+    Hash hashKey = hashCalculate(k);
+    if (table[hashKey].size() == 0){
+        throw std::invalid_argument("wrong Key");
+    }
+    if (table[hashKey].size() >= 1) {
+        for (int i = 0; i < table[hashKey].size(); ++i) {
+            if (table[hashKey][i].first == k)
+                return table[hashKey][i].second;
+        }
+    }
+    throw std::invalid_argument("wrong Key");
+}
 
+
+template<class TYPE>
+HashTable<TYPE>::HashTable(const HashTable<TYPE> &b) {
+    this->table = b.table;
+    this->tableSize = b.tableSize;
 }
 
 template<class TYPE>
-HashTable<TYPE>::HashTable(const HashTable &b) {
-
+void HashTable<TYPE>::operator=(const HashTable<TYPE> &b) {
+    this->table = b.table;
+    this->tableSize = b.tableSize;
 }
-/*
+/*template<class TYPE>
+bool operator==(const HashTable<TYPE> &a, const HashTable<TYPE> &b) {
+    return a.tableSize == b.tableSize && a.table == b.table;
+
+    /*for (int i = 0; i < a.getTable().size(); ++i) {
+        for (int j = 0; j < a.getTable()[i].size(); ++i) {
+            if((a.table[i][j].first == b.table[i][j].first)\
+                         && (a.table[i][j].second == b.table[i][j].second)\
+                         && (a.tableSize == b.tableSize))
+                return true;
+        }
+    }
+}
+
 template<class TYPE>
-HashTable &HashTable<TYPE>::operator=(const HashTable &b) {
-
+bool operator!=(const HashTable<TYPE> &a, const HashTable<TYPE> &b) {
+    /*for (int i = 0; i < a.getTable().size(); ++i) {
+        for (int j = 0; j < a.getTable()[i].size(); ++i) {
+            if((a.table[i][j].first != b.table[i][j].first)\
+                         || (a.table[i][j].second != b.table[i][j].second)\
+                         || (a.tableSize != b.tableSize))
+                return true;
+        }
+    }
 }
 
-bool operator==(const HashTable &a, const HashTable &b) {
-    return false;
-}
+*/
 
-bool operator!=(const HashTable &a, const HashTable &b) {
-    return false;
-}*/
+
 
 #endif //HASHTABLE_HASHTABLE_H

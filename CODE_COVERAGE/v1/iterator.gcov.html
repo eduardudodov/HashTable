@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-10-17 19:59:15</td>
+            <td class="headerValue">2018-10-18 18:39:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">29</td>
-            <td class="headerCovTableEntry">33</td>
-            <td class="headerCovTableEntryMed">87.9 %</td>
+            <td class="headerCovTableEntry">36</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntryHi">90.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -643,7 +643,7 @@
 <span class="lineNum">     581 </span>            : typename iterator_traits&lt;_RandIter&gt;::difference_type
 <span class="lineNum">     582 </span>            : __distance(_RandIter __first, _RandIter __last, random_access_iterator_tag)
 <span class="lineNum">     583 </span>            : {
-<span class="lineNum">     584 </span><span class="lineCov">        696 :     return __last - __first;</span>
+<span class="lineNum">     584 </span><span class="lineCov">        703 :     return __last - __first;</span>
 <span class="lineNum">     585 </span>            : }
 <span class="lineNum">     586 </span>            : 
 <span class="lineNum">     587 </span>            : template &lt;class _InputIter&gt;
@@ -651,7 +651,7 @@
 <span class="lineNum">     589 </span>            : typename iterator_traits&lt;_InputIter&gt;::difference_type
 <span class="lineNum">     590 </span>            : distance(_InputIter __first, _InputIter __last)
 <span class="lineNum">     591 </span>            : {
-<span class="lineNum">     592 </span><span class="lineCov">        696 :     return __distance(__first, __last, typename iterator_traits&lt;_InputIter&gt;::iterator_category());</span>
+<span class="lineNum">     592 </span><span class="lineCov">        703 :     return __distance(__first, __last, typename iterator_traits&lt;_InputIter&gt;::iterator_category());</span>
 <span class="lineNum">     593 </span>            : }
 <span class="lineNum">     594 </span>            : 
 <span class="lineNum">     595 </span>            : template &lt;class _InputIter&gt;
@@ -1414,7 +1414,7 @@
 <span class="lineNum">    1352 </span>            :         _LIBCPP_ASSERT(__get_const_db()-&gt;__dereferenceable(this),
 <span class="lineNum">    1353 </span>            :                        &quot;Attempted to dereference a non-dereferenceable iterator&quot;);
 <span class="lineNum">    1354 </span>            : #endif
-<span class="lineNum">    1355 </span><span class="lineCov">      98706 :         return *__i;</span>
+<span class="lineNum">    1355 </span><span class="lineCov">     132247 :         return *__i;</span>
 <span class="lineNum">    1356 </span>            :     }
 <span class="lineNum">    1357 </span>            :     _LIBCPP_INLINE_VISIBILITY pointer  operator-&gt;() const _NOEXCEPT_DEBUG
 <span class="lineNum">    1358 </span>            :     {
@@ -1430,8 +1430,8 @@
 <span class="lineNum">    1368 </span>            :         _LIBCPP_ASSERT(__get_const_db()-&gt;__dereferenceable(this),
 <span class="lineNum">    1369 </span>            :                        &quot;Attempted to increment non-incrementable iterator&quot;);
 <span class="lineNum">    1370 </span>            : #endif
-<span class="lineNum">    1371 </span><span class="lineCov">      98705 :         ++__i;</span>
-<span class="lineNum">    1372 </span><span class="lineCov">      98705 :         return *this;</span>
+<span class="lineNum">    1371 </span><span class="lineCov">     132244 :         ++__i;</span>
+<span class="lineNum">    1372 </span><span class="lineCov">     132244 :         return *this;</span>
 <span class="lineNum">    1373 </span>            :     }
 <span class="lineNum">    1374 </span>            :     _LIBCPP_INLINE_VISIBILITY __wrap_iter  operator++(int) _NOEXCEPT_DEBUG
 <span class="lineNum">    1375 </span>            :         {__wrap_iter __tmp(*this); ++(*this); return __tmp;}
@@ -1470,7 +1470,7 @@
 <span class="lineNum">    1408 </span>            :         return __i[__n];
 <a name="1409"><span class="lineNum">    1409 </span>            :     }</a>
 <span class="lineNum">    1410 </span>            : 
-<span class="lineNum">    1411 </span><span class="lineCov">     153290 :     _LIBCPP_INLINE_VISIBILITY iterator_type base() const _NOEXCEPT_DEBUG {return __i;}</span>
+<span class="lineNum">    1411 </span><span class="lineCov">     197814 :     _LIBCPP_INLINE_VISIBILITY iterator_type base() const _NOEXCEPT_DEBUG {return __i;}</span>
 <span class="lineNum">    1412 </span>            : 
 <span class="lineNum">    1413 </span>            : private:
 <span class="lineNum">    1414 </span>            : #if _LIBCPP_DEBUG_LEVEL &gt;= 2
@@ -1479,12 +1479,12 @@
 <span class="lineNum">    1417 </span>            :         __get_db()-&gt;__insert_ic(this, __p);
 <a name="1418"><span class="lineNum">    1418 </span>            :     }</a>
 <span class="lineNum">    1419 </span>            : #else
-<span class="lineNum">    1420 </span><span class="lineCov">      33560 :     _LIBCPP_INLINE_VISIBILITY __wrap_iter(iterator_type __x) _NOEXCEPT_DEBUG : __i(__x) {}</span>
+<span class="lineNum">    1420 </span><span class="lineCov">      47210 :     _LIBCPP_INLINE_VISIBILITY __wrap_iter(iterator_type __x) _NOEXCEPT_DEBUG : __i(__x) {}</span>
 <span class="lineNum">    1421 </span>            : #endif
 <span class="lineNum">    1422 </span>            : 
 <a name="1423"><span class="lineNum">    1423 </span>            :     template &lt;class _Up&gt; friend class __wrap_iter;</a>
 <span class="lineNum">    1424 </span>            :     template &lt;class _CharT, class _Traits, class _Alloc&gt; friend class basic_string;
-<span class="lineNum">    1425 </span><span class="lineCov">         16 :     template &lt;class _Tp, class _Alloc&gt; friend class _LIBCPP_TEMPLATE_VIS vector;</span>
+<span class="lineNum">    1425 </span><span class="lineCov">         22 :     template &lt;class _Tp, class _Alloc&gt; friend class _LIBCPP_TEMPLATE_VIS vector;</span>
 <span class="lineNum">    1426 </span>            : 
 <span class="lineNum">    1427 </span>            :     template &lt;class _Iter1, class _Iter2&gt;
 <span class="lineNum">    1428 </span>            :     friend
@@ -1565,7 +1565,7 @@
 <span class="lineNum">    1503 </span>            : bool
 <span class="lineNum">    1504 </span>            : operator==(const __wrap_iter&lt;_Iter1&gt;&amp; __x, const __wrap_iter&lt;_Iter2&gt;&amp; __y) _NOEXCEPT_DEBUG
 <span class="lineNum">    1505 </span>            : {
-<span class="lineNum">    1506 </span><span class="lineCov">      76645 :     return __x.base() == __y.base();</span>
+<span class="lineNum">    1506 </span><span class="lineCov">      98907 :     return __x.base() == __y.base();</span>
 <span class="lineNum">    1507 </span>            : }
 <span class="lineNum">    1508 </span>            : 
 <span class="lineNum">    1509 </span>            : template &lt;class _Iter1, class _Iter2&gt;
@@ -1617,7 +1617,7 @@
 <span class="lineNum">    1555 </span>            : bool
 <span class="lineNum">    1556 </span>            : operator!=(const __wrap_iter&lt;_Iter1&gt;&amp; __x, const __wrap_iter&lt;_Iter1&gt;&amp; __y) _NOEXCEPT_DEBUG
 <span class="lineNum">    1557 </span>            : {
-<span class="lineNum">    1558 </span><span class="lineCov">      76645 :     return !(__x == __y);</span>
+<span class="lineNum">    1558 </span><span class="lineCov">      98907 :     return !(__x == __y);</span>
 <span class="lineNum">    1559 </span>            : }
 <span class="lineNum">    1560 </span>            : 
 <span class="lineNum">    1561 </span>            : template &lt;class _Iter1&gt;

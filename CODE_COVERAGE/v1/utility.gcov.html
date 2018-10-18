@@ -31,18 +31,18 @@
             <td class="headerValue">HashTable.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">14</td>
+            <td class="headerCovTableEntry">14</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-10-17 19:59:15</td>
+            <td class="headerValue">2018-10-18 18:39:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">17</td>
-            <td class="headerCovTableEntry">18</td>
-            <td class="headerCovTableEntryHi">94.4 %</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntry">22</td>
+            <td class="headerCovTableEntryHi">95.5 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -346,7 +346,7 @@
 <span class="lineNum">     284 </span>            : #endif
 <span class="lineNum">     285 </span>            : move_if_noexcept(_Tp&amp; __x) _NOEXCEPT
 <span class="lineNum">     286 </span>            : {
-<span class="lineNum">     287 </span><span class="lineCov">       1618 :     return _VSTD::move(__x);</span>
+<span class="lineNum">     287 </span><span class="lineCov">       2082 :     return _VSTD::move(__x);</span>
 <span class="lineNum">     288 </span>            : }
 <span class="lineNum">     289 </span>            : 
 <span class="lineNum">     290 </span>            : #if _LIBCPP_STD_VER &gt; 14
@@ -371,7 +371,7 @@
 <span class="lineNum">     309 </span>            : #endif
 <a name="310"><span class="lineNum">     310 </span>            : </a>
 <span class="lineNum">     311 </span>            : template &lt;class _T1, class _T2&gt;
-<span class="lineNum">     312 </span><span class="lineCov">     699946 : struct _LIBCPP_TEMPLATE_VIS pair</span>
+<span class="lineNum">     312 </span><span class="lineCov">     959450 : struct _LIBCPP_TEMPLATE_VIS pair</span>
 <span class="lineNum">     313 </span>            : #if defined(_LIBCPP_DEPRECATED_ABI_DISABLE_PAIR_TRIVIAL_COPY_CTOR)
 <span class="lineNum">     314 </span>            : : private __non_trivially_copyable_base
 <span class="lineNum">     315 </span>            : #endif
@@ -383,8 +383,8 @@
 <span class="lineNum">     321 </span>            :     _T2 second;
 <a name="322"><span class="lineNum">     322 </span>            : </a>
 <a name="323"><span class="lineNum">     323 </span>            : #if !defined(_LIBCPP_CXX03_LANG)</a>
-<span class="lineNum">     324 </span><span class="lineCov">    1023141 :     pair(pair const&amp;) = default;</span>
-<span class="lineNum">     325 </span><span class="lineCov">      13389 :     pair(pair&amp;&amp;) = default;</span>
+<span class="lineNum">     324 </span><span class="lineCov">    1407711 :     pair(pair const&amp;) = default;</span>
+<span class="lineNum">     325 </span><span class="lineCov">      15732 :     pair(pair&amp;&amp;) = default;</span>
 <span class="lineNum">     326 </span>            : #else
 <span class="lineNum">     327 </span>            :   // Use the implicitly declared copy constructor in C++03
 <span class="lineNum">     328 </span>            : #endif
@@ -468,7 +468,7 @@
 <span class="lineNum">     406 </span>            :             _CheckArgsDep&lt;_Dummy&gt;::template __enable_default&lt;_T1, _T2&gt;()
 <a name="407"><span class="lineNum">     407 </span>            :     &gt; = false&gt;</a>
 <span class="lineNum">     408 </span>            :     _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR
-<span class="lineNum">     409 </span><span class="lineCov">         20 :     pair() : first(), second() {}</span>
+<span class="lineNum">     409 </span><span class="lineCov">         32 :     pair() : first(), second() {}</span>
 <span class="lineNum">     410 </span>            : 
 <span class="lineNum">     411 </span>            :     template &lt;bool _Dummy = true, _EnableB&lt;
 <span class="lineNum">     412 </span>            :              _CheckArgsDep&lt;_Dummy&gt;::template __enable_explicit&lt;_T1 const&amp;, _T2 const&amp;&gt;()
@@ -482,7 +482,7 @@
 <a name="420"><span class="lineNum">     420 </span>            :     &gt; = false&gt;</a>
 <span class="lineNum">     421 </span>            :     _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11
 <span class="lineNum">     422 </span>            :     pair(_T1 const&amp; __t1, _T2 const&amp; __t2)
-<span class="lineNum">     423 </span><span class="lineCov">       5700 :         : first(__t1), second(__t2) {}</span>
+<span class="lineNum">     423 </span><span class="lineCov">       6603 :         : first(__t1), second(__t2) {}</span>
 <span class="lineNum">     424 </span>            : 
 <span class="lineNum">     425 </span>            :     template&lt;class _U1, class _U2, _EnableB&lt;
 <span class="lineNum">     426 </span>            :              _CheckArgs::template __enable_explicit&lt;_U1, _U2&gt;()
@@ -496,7 +496,7 @@
 <a name="434"><span class="lineNum">     434 </span>            :     &gt; = false&gt;</a>
 <span class="lineNum">     435 </span>            :     _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11
 <span class="lineNum">     436 </span>            :     pair(_U1&amp;&amp; __u1, _U2&amp;&amp; __u2)
-<span class="lineNum">     437 </span><span class="lineCov">       7689 :         : first(_VSTD::forward&lt;_U1&gt;(__u1)), second(_VSTD::forward&lt;_U2&gt;(__u2)) {}</span>
+<span class="lineNum">     437 </span><span class="lineCov">       9129 :         : first(_VSTD::forward&lt;_U1&gt;(__u1)), second(_VSTD::forward&lt;_U2&gt;(__u2)) {}</span>
 <span class="lineNum">     438 </span>            : 
 <span class="lineNum">     439 </span>            :     template&lt;class _U1, class _U2, _EnableB&lt;
 <span class="lineNum">     440 </span>            :             _CheckArgs::template __enable_explicit&lt;_U1 const&amp;, _U2 const&amp;&gt;()
@@ -558,9 +558,9 @@
 <span class="lineNum">     496 </span>            :         _NOEXCEPT_(is_nothrow_copy_assignable&lt;first_type&gt;::value &amp;&amp;
 <span class="lineNum">     497 </span>            :                    is_nothrow_copy_assignable&lt;second_type&gt;::value)
 <span class="lineNum">     498 </span>            :     {
-<span class="lineNum">     499 </span><span class="lineCov">        200 :         first = __p.first;</span>
-<span class="lineNum">     500 </span><span class="lineCov">        200 :         second = __p.second;</span>
-<span class="lineNum">     501 </span><span class="lineCov">        200 :         return *this;</span>
+<span class="lineNum">     499 </span><span class="lineCov">        203 :         first = __p.first;</span>
+<span class="lineNum">     500 </span><span class="lineCov">        203 :         second = __p.second;</span>
+<span class="lineNum">     501 </span><span class="lineCov">        203 :         return *this;</span>
 <span class="lineNum">     502 </span>            :     }
 <span class="lineNum">     503 </span>            : 
 <span class="lineNum">     504 </span>            :     _LIBCPP_INLINE_VISIBILITY
@@ -613,19 +613,19 @@
 <span class="lineNum">     551 </span>            : #endif // _LIBCPP_HAS_NO_DEDUCTION_GUIDES
 <span class="lineNum">     552 </span>            : 
 <span class="lineNum">     553 </span>            : template &lt;class _T1, class _T2&gt;
-<span class="lineNum">     554 </span>            : inline _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11
+<a name="554"><span class="lineNum">     554 </span>            : inline _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11</a>
 <span class="lineNum">     555 </span>            : bool
 <span class="lineNum">     556 </span>            : operator==(const pair&lt;_T1,_T2&gt;&amp; __x, const pair&lt;_T1,_T2&gt;&amp; __y)
 <span class="lineNum">     557 </span>            : {
-<span class="lineNum">     558 </span>            :     return __x.first == __y.first &amp;&amp; __x.second == __y.second;
+<span class="lineNum">     558 </span><span class="lineCov">        552 :     return __x.first == __y.first &amp;&amp; __x.second == __y.second;</span>
 <span class="lineNum">     559 </span>            : }
 <span class="lineNum">     560 </span>            : 
 <span class="lineNum">     561 </span>            : template &lt;class _T1, class _T2&gt;
-<span class="lineNum">     562 </span>            : inline _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11
+<a name="562"><span class="lineNum">     562 </span>            : inline _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11</a>
 <span class="lineNum">     563 </span>            : bool
 <span class="lineNum">     564 </span>            : operator!=(const pair&lt;_T1,_T2&gt;&amp; __x, const pair&lt;_T1,_T2&gt;&amp; __y)
 <span class="lineNum">     565 </span>            : {
-<span class="lineNum">     566 </span>            :     return !(__x == __y);
+<span class="lineNum">     566 </span><span class="lineCov">          1 :     return !(__x == __y);</span>
 <span class="lineNum">     567 </span>            : }
 <span class="lineNum">     568 </span>            : 
 <span class="lineNum">     569 </span>            : template &lt;class _T1, class _T2&gt;
@@ -700,8 +700,8 @@
 <span class="lineNum">     638 </span>            : pair&lt;typename __make_pair_return&lt;_T1&gt;::type, typename __make_pair_return&lt;_T2&gt;::type&gt;
 <span class="lineNum">     639 </span>            : make_pair(_T1&amp;&amp; __t1, _T2&amp;&amp; __t2)
 <span class="lineNum">     640 </span>            : {
-<span class="lineNum">     641 </span><span class="lineCov">       4463 :     return pair&lt;typename __make_pair_return&lt;_T1&gt;::type, typename __make_pair_return&lt;_T2&gt;::type&gt;</span>
-<span class="lineNum">     642 </span><span class="lineCov">       4463 :                (_VSTD::forward&lt;_T1&gt;(__t1), _VSTD::forward&lt;_T2&gt;(__t2));</span>
+<span class="lineNum">     641 </span><span class="lineCov">       5244 :     return pair&lt;typename __make_pair_return&lt;_T1&gt;::type, typename __make_pair_return&lt;_T2&gt;::type&gt;</span>
+<span class="lineNum">     642 </span><span class="lineCov">       5244 :                (_VSTD::forward&lt;_T1&gt;(__t1), _VSTD::forward&lt;_T2&gt;(__t2));</span>
 <span class="lineNum">     643 </span>            : }
 <span class="lineNum">     644 </span>            : 
 <span class="lineNum">     645 </span>            : #else  // _LIBCPP_CXX03_LANG

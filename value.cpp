@@ -10,21 +10,7 @@ Value &Value::operator=(const Value &b) {
     this->age=b.age;
     this->name=b.name;
     Value temp = b;
-    while (temp.next){
-        addNext(temp.next);
-        temp = *temp.next;
-    }
     return *this;
-}
-
-void Value::addNext(Value * next) {
-    Value * element = new Value;
-    element->edit(next->getName(), next->age, next->weight);
-    this->next = element;
-}
-
-Value *Value::getNext() {
-    return this->next;
 }
 
 
@@ -32,7 +18,6 @@ void Value::edit(Key name, int age, int weight) {
     this->age = static_cast<unsigned int>(age);
     this->weight = static_cast<unsigned int>(weight);
     this->name = name;
-    this->next = NULL;
 
 }
 
@@ -40,30 +25,15 @@ Value::Value() {
     this->weight = 0;
     this->age = 0;
     this->name = "HEAD";
-    this->next = NULL;
 }
 
-Key Value::getName() {
+Key Value::getName() const {
     return this->name;
 }
 
-Value::~Value() {
 
+
+bool operator==(const Value &a, const Value &b) {
+    return (a.weight == b.weight) && (a.age == b.age) && (a.name == b.name);
 }
-
-
-int Value::getAge() {
-    return this->age;
-}
-
-int Value::getWeight() {
-    return this->weight;
-}
-
-Value::Value(Key name, unsigned int age, unsigned int weight) {
-    this->name = name;
-    this->age = age;
-    this->weight = weight;
-}
-
 

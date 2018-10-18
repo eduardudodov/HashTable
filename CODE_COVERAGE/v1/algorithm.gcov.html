@@ -31,17 +31,17 @@
             <td class="headerValue">HashTable.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntry">14</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntry">21</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-10-17 19:59:15</td>
+            <td class="headerValue">2018-10-18 18:39:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntry">21</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -739,9 +739,9 @@
 <span class="lineNum">     677 </span>            : 
 <span class="lineNum">     678 </span>            : template &lt;class _T1&gt;
 <span class="lineNum">     679 </span>            : struct __equal_to&lt;_T1, _T1&gt;
-<span class="lineNum">     680 </span>            : {
+<a name="680"><span class="lineNum">     680 </span>            : {</a>
 <span class="lineNum">     681 </span>            :     _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11
-<span class="lineNum">     682 </span>            :     bool operator()(const _T1&amp; __x, const _T1&amp; __y) const {return __x == __y;}
+<span class="lineNum">     682 </span><span class="lineCov">        754 :     bool operator()(const _T1&amp; __x, const _T1&amp; __y) const {return __x == __y;}</span>
 <span class="lineNum">     683 </span>            : };
 <span class="lineNum">     684 </span>            : 
 <span class="lineNum">     685 </span>            : template &lt;class _T1&gt;
@@ -778,7 +778,7 @@
 <span class="lineNum">     716 </span>            : struct __less&lt;_T1, _T1&gt;
 <a name="717"><span class="lineNum">     717 </span>            : {</a>
 <span class="lineNum">     718 </span>            :     _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR_AFTER_CXX11
-<span class="lineNum">     719 </span><span class="lineCov">     311623 :     bool operator()(const _T1&amp; __x, const _T1&amp; __y) const {return __x &lt; __y;}</span>
+<span class="lineNum">     719 </span><span class="lineCov">     394236 :     bool operator()(const _T1&amp; __x, const _T1&amp; __y) const {return __x &lt; __y;}</span>
 <span class="lineNum">     720 </span>            : };
 <span class="lineNum">     721 </span>            : 
 <span class="lineNum">     722 </span>            : template &lt;class _T1&gt;
@@ -1379,24 +1379,24 @@
 <span class="lineNum">    1317 </span>            : // equal
 <span class="lineNum">    1318 </span>            : 
 <span class="lineNum">    1319 </span>            : template &lt;class _InputIterator1, class _InputIterator2, class _BinaryPredicate&gt;
-<span class="lineNum">    1320 </span>            : inline _LIBCPP_INLINE_VISIBILITY
+<a name="1320"><span class="lineNum">    1320 </span>            : inline _LIBCPP_INLINE_VISIBILITY</a>
 <span class="lineNum">    1321 </span>            : bool
 <span class="lineNum">    1322 </span>            : equal(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2, _BinaryPredicate __pred)
 <span class="lineNum">    1323 </span>            : {
-<span class="lineNum">    1324 </span>            :     for (; __first1 != __last1; ++__first1, (void) ++__first2)
-<span class="lineNum">    1325 </span>            :         if (!__pred(*__first1, *__first2))
-<span class="lineNum">    1326 </span>            :             return false;
-<span class="lineNum">    1327 </span>            :     return true;
-<span class="lineNum">    1328 </span>            : }
+<span class="lineNum">    1324 </span><span class="lineCov">       2652 :     for (; __first1 != __last1; ++__first1, (void) ++__first2)</span>
+<span class="lineNum">    1325 </span><span class="lineCov">       1507 :         if (!__pred(*__first1, *__first2))</span>
+<span class="lineNum">    1326 </span><span class="lineCov">          1 :             return false;</span>
+<span class="lineNum">    1327 </span><span class="lineCov">        572 :     return true;</span>
+<span class="lineNum">    1328 </span><span class="lineCov">        573 : }</span>
 <span class="lineNum">    1329 </span>            : 
 <span class="lineNum">    1330 </span>            : template &lt;class _InputIterator1, class _InputIterator2&gt;
-<span class="lineNum">    1331 </span>            : inline _LIBCPP_INLINE_VISIBILITY
+<a name="1331"><span class="lineNum">    1331 </span>            : inline _LIBCPP_INLINE_VISIBILITY</a>
 <span class="lineNum">    1332 </span>            : bool
 <span class="lineNum">    1333 </span>            : equal(_InputIterator1 __first1, _InputIterator1 __last1, _InputIterator2 __first2)
 <span class="lineNum">    1334 </span>            : {
 <span class="lineNum">    1335 </span>            :     typedef typename iterator_traits&lt;_InputIterator1&gt;::value_type __v1;
 <span class="lineNum">    1336 </span>            :     typedef typename iterator_traits&lt;_InputIterator2&gt;::value_type __v2;
-<span class="lineNum">    1337 </span>            :     return _VSTD::equal(__first1, __last1, __first2, __equal_to&lt;__v1, __v2&gt;());
+<span class="lineNum">    1337 </span><span class="lineCov">        573 :     return _VSTD::equal(__first1, __last1, __first2, __equal_to&lt;__v1, __v2&gt;());</span>
 <span class="lineNum">    1338 </span>            : }
 <span class="lineNum">    1339 </span>            : 
 <span class="lineNum">    1340 </span>            : #if _LIBCPP_STD_VER &gt; 11
@@ -2243,10 +2243,10 @@
 <span class="lineNum">    2181 </span>            : generate_n(_OutputIterator __first, _Size __orig_n, _Generator __gen)
 <span class="lineNum">    2182 </span>            : {
 <span class="lineNum">    2183 </span>            :     typedef decltype(__convert_to_integral(__orig_n)) _IntegralSize;
-<span class="lineNum">    2184 </span><span class="lineCov">       2900 :     _IntegralSize __n = __orig_n;</span>
-<span class="lineNum">    2185 </span><span class="lineCov">      63800 :     for (; __n &gt; 0; ++__first, (void) --__n)</span>
-<span class="lineNum">    2186 </span><span class="lineCov">      29000 :         *__first = __gen();</span>
-<span class="lineNum">    2187 </span><span class="lineCov">       2900 :     return __first;</span>
+<span class="lineNum">    2184 </span><span class="lineCov">       4200 :     _IntegralSize __n = __orig_n;</span>
+<span class="lineNum">    2185 </span><span class="lineCov">      92400 :     for (; __n &gt; 0; ++__first, (void) --__n)</span>
+<span class="lineNum">    2186 </span><span class="lineCov">      42000 :         *__first = __gen();</span>
+<span class="lineNum">    2187 </span><span class="lineCov">       4200 :     return __first;</span>
 <span class="lineNum">    2188 </span>            : }
 <span class="lineNum">    2189 </span>            : 
 <span class="lineNum">    2190 </span>            : // remove
@@ -2705,7 +2705,7 @@
 <span class="lineNum">    2643 </span>            : const _Tp&amp;
 <span class="lineNum">    2644 </span>            : min(const _Tp&amp; __a, const _Tp&amp; __b, _Compare __comp)
 <span class="lineNum">    2645 </span>            : {
-<span class="lineNum">    2646 </span><span class="lineCov">     921015 :     return __comp(__b, __a) ? __b : __a;</span>
+<span class="lineNum">    2646 </span><span class="lineCov">    1166469 :     return __comp(__b, __a) ? __b : __a;</span>
 <span class="lineNum">    2647 </span>            : }
 <span class="lineNum">    2648 </span>            : 
 <span class="lineNum">    2649 </span>            : template &lt;class _Tp&gt;
@@ -2713,7 +2713,7 @@
 <span class="lineNum">    2651 </span>            : const _Tp&amp;
 <span class="lineNum">    2652 </span>            : min(const _Tp&amp; __a, const _Tp&amp; __b)
 <span class="lineNum">    2653 </span>            : {
-<span class="lineNum">    2654 </span><span class="lineCov">     307005 :     return _VSTD::min(__a, __b, __less&lt;_Tp&gt;());</span>
+<span class="lineNum">    2654 </span><span class="lineCov">     388823 :     return _VSTD::min(__a, __b, __less&lt;_Tp&gt;());</span>
 <span class="lineNum">    2655 </span>            : }
 <span class="lineNum">    2656 </span>            : 
 <span class="lineNum">    2657 </span>            : #ifndef _LIBCPP_CXX03_LANG
@@ -2770,7 +2770,7 @@
 <span class="lineNum">    2708 </span>            : const _Tp&amp;
 <span class="lineNum">    2709 </span>            : max(const _Tp&amp; __a, const _Tp&amp; __b, _Compare __comp)
 <span class="lineNum">    2710 </span>            : {
-<span class="lineNum">    2711 </span><span class="lineCov">      13854 :     return __comp(__a, __b) ? __b : __a;</span>
+<span class="lineNum">    2711 </span><span class="lineCov">      16239 :     return __comp(__a, __b) ? __b : __a;</span>
 <span class="lineNum">    2712 </span>            : }
 <span class="lineNum">    2713 </span>            : 
 <span class="lineNum">    2714 </span>            : template &lt;class _Tp&gt;
@@ -2778,7 +2778,7 @@
 <span class="lineNum">    2716 </span>            : const _Tp&amp;
 <span class="lineNum">    2717 </span>            : max(const _Tp&amp; __a, const _Tp&amp; __b)
 <span class="lineNum">    2718 </span>            : {
-<span class="lineNum">    2719 </span><span class="lineCov">       4618 :     return _VSTD::max(__a, __b, __less&lt;_Tp&gt;());</span>
+<span class="lineNum">    2719 </span><span class="lineCov">       5413 :     return _VSTD::max(__a, __b, __less&lt;_Tp&gt;());</span>
 <span class="lineNum">    2720 </span>            : }
 <span class="lineNum">    2721 </span>            : 
 <span class="lineNum">    2722 </span>            : #ifndef _LIBCPP_CXX03_LANG

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-10-17 19:59:15</td>
+            <td class="headerValue">2018-10-18 18:39:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -272,7 +272,7 @@
 <span class="lineNum">     210 </span>            :     static _LIBCPP_CONSTEXPR const type __min = __libcpp_compute_min&lt;type, digits, is_signed&gt;::value;
 <a name="211"><span class="lineNum">     211 </span>            :     static _LIBCPP_CONSTEXPR const type __max = is_signed ? type(type(~0) ^ __min) : type(~0);</a>
 <span class="lineNum">     212 </span>            :     _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type min() _NOEXCEPT {return __min;}
-<span class="lineNum">     213 </span><span class="lineCov">     614010 :     _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type max() _NOEXCEPT {return __max;}</span>
+<span class="lineNum">     213 </span><span class="lineCov">     777646 :     _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type max() _NOEXCEPT {return __max;}</span>
 <span class="lineNum">     214 </span>            :     _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type lowest() _NOEXCEPT {return min();}
 <span class="lineNum">     215 </span>            : 
 <span class="lineNum">     216 </span>            :     static _LIBCPP_CONSTEXPR const bool is_integer = true;
@@ -509,7 +509,7 @@
 <span class="lineNum">     447 </span>            : public:
 <a name="448"><span class="lineNum">     448 </span>            :     static _LIBCPP_CONSTEXPR const bool is_specialized = __base::is_specialized;</a>
 <span class="lineNum">     449 </span>            :     _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type min() _NOEXCEPT {return __base::min();}
-<span class="lineNum">     450 </span><span class="lineCov">     614010 :     _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type max() _NOEXCEPT {return __base::max();}</span>
+<span class="lineNum">     450 </span><span class="lineCov">     777646 :     _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type max() _NOEXCEPT {return __base::max();}</span>
 <span class="lineNum">     451 </span>            :     _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type lowest() _NOEXCEPT {return __base::lowest();}
 <span class="lineNum">     452 </span>            : 
 <span class="lineNum">     453 </span>            :     static _LIBCPP_CONSTEXPR const int  digits = __base::digits;

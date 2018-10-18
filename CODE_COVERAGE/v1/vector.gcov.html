@@ -31,18 +31,18 @@
             <td class="headerValue">HashTable.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">169</td>
-            <td class="headerCovTableEntry">195</td>
-            <td class="headerCovTableEntryMed">86.7 %</td>
+            <td class="headerCovTableEntry">181</td>
+            <td class="headerCovTableEntry">198</td>
+            <td class="headerCovTableEntryHi">91.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-10-17 19:59:15</td>
+            <td class="headerValue">2018-10-18 18:39:00</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">126</td>
-            <td class="headerCovTableEntry">131</td>
-            <td class="headerCovTableEntryHi">96.2 %</td>
+            <td class="headerCovTableEntry">133</td>
+            <td class="headerCovTableEntry">137</td>
+            <td class="headerCovTableEntryHi">97.1 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -353,7 +353,7 @@
 <span class="lineNum">     291 </span>            : class __vector_base_common
 <a name="292"><span class="lineNum">     292 </span>            : {</a>
 <span class="lineNum">     293 </span>            : protected:
-<span class="lineNum">     294 </span><span class="lineCov">    1098884 :     _LIBCPP_ALWAYS_INLINE __vector_base_common() {}</span>
+<span class="lineNum">     294 </span><span class="lineCov">    1511039 :     _LIBCPP_ALWAYS_INLINE __vector_base_common() {}</span>
 <span class="lineNum">     295 </span>            :     _LIBCPP_NORETURN void __throw_length_error() const;
 <span class="lineNum">     296 </span>            :     _LIBCPP_NORETURN void __throw_out_of_range() const;
 <span class="lineNum">     297 </span>            : };
@@ -397,36 +397,36 @@
 <a name="335"><span class="lineNum">     335 </span>            : </a>
 <span class="lineNum">     336 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     337 </span>            :     allocator_type&amp; __alloc() _NOEXCEPT
-<a name="338"><span class="lineNum">     338 </span><span class="lineCov">    2360530 :         {return __end_cap_.second();}</span></a>
+<a name="338"><span class="lineNum">     338 </span><span class="lineCov">    3145685 :         {return __end_cap_.second();}</span></a>
 <span class="lineNum">     339 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     340 </span>            :     const allocator_type&amp; __alloc() const _NOEXCEPT
-<a name="341"><span class="lineNum">     341 </span><span class="lineCov">    1395704 :         {return __end_cap_.second();}</span></a>
+<a name="341"><span class="lineNum">     341 </span><span class="lineCov">    1887748 :         {return __end_cap_.second();}</span></a>
 <span class="lineNum">     342 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     343 </span>            :     pointer&amp; __end_cap() _NOEXCEPT
-<a name="344"><span class="lineNum">     344 </span><span class="lineCov">     311966 :         {return __end_cap_.first();}</span></a>
+<a name="344"><span class="lineNum">     344 </span><span class="lineCov">     394713 :         {return __end_cap_.first();}</span></a>
 <span class="lineNum">     345 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     346 </span>            :     const pointer&amp; __end_cap() const _NOEXCEPT
-<span class="lineNum">     347 </span><span class="lineCov">     943094 :         {return __end_cap_.first();}</span>
+<span class="lineNum">     347 </span><span class="lineCov">    1192295 :         {return __end_cap_.first();}</span>
 <span class="lineNum">     348 </span>            : 
 <span class="lineNum">     349 </span>            :     _LIBCPP_INLINE_VISIBILITY
-<span class="lineNum">     350 </span><span class="lineCov">      10185 :     __vector_base()</span>
+<span class="lineNum">     350 </span><span class="lineCov">      12114 :     __vector_base()</span>
 <span class="lineNum">     351 </span>            :         _NOEXCEPT_(is_nothrow_default_constructible&lt;allocator_type&gt;::value);
-<span class="lineNum">     352 </span><span class="lineCov">    1088699 :     _LIBCPP_INLINE_VISIBILITY __vector_base(const allocator_type&amp; __a);</span>
+<span class="lineNum">     352 </span><span class="lineCov">    1498925 :     _LIBCPP_INLINE_VISIBILITY __vector_base(const allocator_type&amp; __a);</span>
 <span class="lineNum">     353 </span>            :     ~__vector_base();
 <a name="354"><span class="lineNum">     354 </span>            : </a>
 <span class="lineNum">     355 </span>            :     _LIBCPP_INLINE_VISIBILITY
-<a name="356"><span class="lineNum">     356 </span><span class="lineCov">     306105 :     void clear() _NOEXCEPT {__destruct_at_end(__begin_);}</span></a>
+<a name="356"><span class="lineNum">     356 </span><span class="lineCov">     387766 :     void clear() _NOEXCEPT {__destruct_at_end(__begin_);}</span></a>
 <span class="lineNum">     357 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     358 </span>            :     size_type capacity() const _NOEXCEPT
-<span class="lineNum">     359 </span><span class="lineCov">     943094 :         {return static_cast&lt;size_type&gt;(__end_cap() - __begin_);}</span>
+<span class="lineNum">     359 </span><span class="lineCov">    1192295 :         {return static_cast&lt;size_type&gt;(__end_cap() - __begin_);}</span>
 <span class="lineNum">     360 </span>            : 
 <span class="lineNum">     361 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     362 </span>            :     void __destruct_at_end(pointer __new_last) _NOEXCEPT;
 <a name="363"><span class="lineNum">     363 </span>            : </a>
 <span class="lineNum">     364 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     365 </span>            :     void __copy_assign_alloc(const __vector_base&amp; __c)
-<span class="lineNum">     366 </span><span class="lineCov">        642 :         {__copy_assign_alloc(__c, integral_constant&lt;bool,</span>
-<span class="lineNum">     367 </span><span class="lineCov">        642 :                       __alloc_traits::propagate_on_container_copy_assignment::value&gt;());}</span>
+<span class="lineNum">     366 </span><span class="lineCov">        645 :         {__copy_assign_alloc(__c, integral_constant&lt;bool,</span>
+<span class="lineNum">     367 </span><span class="lineCov">        645 :                       __alloc_traits::propagate_on_container_copy_assignment::value&gt;());}</span>
 <span class="lineNum">     368 </span>            : 
 <span class="lineNum">     369 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     370 </span>            :     void __move_assign_alloc(__vector_base&amp; __c)
@@ -450,7 +450,7 @@
 <a name="388"><span class="lineNum">     388 </span>            : </a>
 <span class="lineNum">     389 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     390 </span>            :     void __copy_assign_alloc(const __vector_base&amp;, false_type)
-<span class="lineNum">     391 </span><span class="lineCov">        642 :         {}</span>
+<span class="lineNum">     391 </span><span class="lineCov">        645 :         {}</span>
 <span class="lineNum">     392 </span>            : 
 <span class="lineNum">     393 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     394 </span>            :     void __move_assign_alloc(__vector_base&amp; __c, true_type)
@@ -470,43 +470,43 @@
 <span class="lineNum">     408 </span>            : void
 <span class="lineNum">     409 </span>            : __vector_base&lt;_Tp, _Allocator&gt;::__destruct_at_end(pointer __new_last) _NOEXCEPT
 <span class="lineNum">     410 </span>            : {
-<span class="lineNum">     411 </span><span class="lineCov">     314780 :     pointer __soon_to_be_end = __end_;</span>
-<span class="lineNum">     412 </span><span class="lineCov">    3509678 :     while (__new_last != __soon_to_be_end)</span>
-<span class="lineNum">     413 </span><span class="lineCov">    1440059 :         __alloc_traits::destroy(__alloc(), _VSTD::__to_raw_pointer(--__soon_to_be_end));</span>
-<span class="lineNum">     414 </span><span class="lineCov">     314780 :     __end_ = __new_last;</span>
-<span class="lineNum">     415 </span><span class="lineCov">     314780 : }</span>
+<span class="lineNum">     411 </span><span class="lineCov">     397978 :     pointer __soon_to_be_end = __end_;</span>
+<span class="lineNum">     412 </span><span class="lineCov">    4755550 :     while (__new_last != __soon_to_be_end)</span>
+<span class="lineNum">     413 </span><span class="lineCov">    1979797 :         __alloc_traits::destroy(__alloc(), _VSTD::__to_raw_pointer(--__soon_to_be_end));</span>
+<span class="lineNum">     414 </span><span class="lineCov">     397978 :     __end_ = __new_last;</span>
+<span class="lineNum">     415 </span><span class="lineCov">     397978 : }</span>
 <span class="lineNum">     416 </span>            : 
 <a name="417"><span class="lineNum">     417 </span>            : template &lt;class _Tp, class _Allocator&gt;</a>
 <span class="lineNum">     418 </span>            : inline _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     419 </span>            : __vector_base&lt;_Tp, _Allocator&gt;::__vector_base()
 <span class="lineNum">     420 </span>            :         _NOEXCEPT_(is_nothrow_default_constructible&lt;allocator_type&gt;::value)
-<span class="lineNum">     421 </span><span class="lineCov">      10185 :     : __begin_(nullptr),</span>
-<span class="lineNum">     422 </span><span class="lineCov">      10185 :       __end_(nullptr),</span>
-<span class="lineNum">     423 </span><span class="lineCov">      10185 :       __end_cap_(nullptr)</span>
-<span class="lineNum">     424 </span><span class="lineCov">      10185 : {</span>
-<span class="lineNum">     425 </span><span class="lineCov">      10185 : }</span>
+<span class="lineNum">     421 </span><span class="lineCov">      12114 :     : __begin_(nullptr),</span>
+<span class="lineNum">     422 </span><span class="lineCov">      12114 :       __end_(nullptr),</span>
+<span class="lineNum">     423 </span><span class="lineCov">      12114 :       __end_cap_(nullptr)</span>
+<span class="lineNum">     424 </span><span class="lineCov">      12114 : {</span>
+<span class="lineNum">     425 </span><span class="lineCov">      12114 : }</span>
 <span class="lineNum">     426 </span>            : 
 <a name="427"><span class="lineNum">     427 </span>            : template &lt;class _Tp, class _Allocator&gt;</a>
 <span class="lineNum">     428 </span>            : inline _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     429 </span>            : __vector_base&lt;_Tp, _Allocator&gt;::__vector_base(const allocator_type&amp; __a)
-<span class="lineNum">     430 </span><span class="lineCov">    1088699 :     : __begin_(nullptr),</span>
-<span class="lineNum">     431 </span><span class="lineCov">    1088699 :       __end_(nullptr),</span>
-<span class="lineNum">     432 </span><span class="lineCov">    1088699 :       __end_cap_(nullptr, __a)</span>
-<span class="lineNum">     433 </span><span class="lineCov">    1088699 : {</span>
-<span class="lineNum">     434 </span><span class="lineCov">    1088699 : }</span>
+<span class="lineNum">     430 </span><span class="lineCov">    1498925 :     : __begin_(nullptr),</span>
+<span class="lineNum">     431 </span><span class="lineCov">    1498925 :       __end_(nullptr),</span>
+<span class="lineNum">     432 </span><span class="lineCov">    1498925 :       __end_cap_(nullptr, __a)</span>
+<span class="lineNum">     433 </span><span class="lineCov">    1498925 : {</span>
+<span class="lineNum">     434 </span><span class="lineCov">    1498925 : }</span>
 <a name="435"><span class="lineNum">     435 </span>            : </a>
 <span class="lineNum">     436 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <span class="lineNum">     437 </span>            : __vector_base&lt;_Tp, _Allocator&gt;::~__vector_base()
 <span class="lineNum">     438 </span>            : {
-<span class="lineNum">     439 </span><span class="lineCov">    1098887 :     if (__begin_ != nullptr)</span>
+<span class="lineNum">     439 </span><span class="lineCov">    1511042 :     if (__begin_ != nullptr)</span>
 <span class="lineNum">     440 </span>            :     {
-<span class="lineNum">     441 </span><span class="lineCov">     306056 :         clear();</span>
-<span class="lineNum">     442 </span><span class="lineCov">     306056 :         __alloc_traits::deallocate(__alloc(), __begin_, capacity());</span>
-<span class="lineNum">     443 </span><span class="lineCov">     306056 :     }</span>
-<span class="lineNum">     444 </span><span class="lineCov">    1098887 : }</span>
+<span class="lineNum">     441 </span><span class="lineCov">     387699 :         clear();</span>
+<span class="lineNum">     442 </span><span class="lineCov">     387699 :         __alloc_traits::deallocate(__alloc(), __begin_, capacity());</span>
+<span class="lineNum">     443 </span><span class="lineCov">     387699 :     }</span>
+<span class="lineNum">     444 </span><span class="lineCov">    1511042 : }</span>
 <a name="445"><span class="lineNum">     445 </span>            : </a>
 <span class="lineNum">     446 </span>            : template &lt;class _Tp, class _Allocator /* = allocator&lt;_Tp&gt; */&gt;
-<span class="lineNum">     447 </span><span class="lineCov">    2197758 : class _LIBCPP_TEMPLATE_VIS vector</span>
+<span class="lineNum">     447 </span><span class="lineCov">    3022062 : class _LIBCPP_TEMPLATE_VIS vector</span>
 <span class="lineNum">     448 </span>            :     : private __vector_base&lt;_Tp, _Allocator&gt;
 <span class="lineNum">     449 </span>            : {
 <span class="lineNum">     450 </span>            : private:
@@ -532,12 +532,12 @@
 <span class="lineNum">     470 </span>            :                   &quot;Allocator::value_type must be same type as value_type&quot;);
 <a name="471"><span class="lineNum">     471 </span>            : </a>
 <span class="lineNum">     472 </span>            :     _LIBCPP_INLINE_VISIBILITY
-<span class="lineNum">     473 </span><span class="lineCov">      10185 :     vector() _NOEXCEPT_(is_nothrow_default_constructible&lt;allocator_type&gt;::value)</span>
-<span class="lineNum">     474 </span><span class="lineCov">      20370 :         {</span>
+<span class="lineNum">     473 </span><span class="lineCov">      12114 :     vector() _NOEXCEPT_(is_nothrow_default_constructible&lt;allocator_type&gt;::value)</span>
+<span class="lineNum">     474 </span><span class="lineCov">      24228 :         {</span>
 <span class="lineNum">     475 </span>            : #if _LIBCPP_DEBUG_LEVEL &gt;= 2
 <span class="lineNum">     476 </span>            :             __get_db()-&gt;__insert_c(this);
 <span class="lineNum">     477 </span>            : #endif
-<span class="lineNum">     478 </span><span class="lineCov">      20370 :         }</span>
+<span class="lineNum">     478 </span><span class="lineCov">      24228 :         }</span>
 <span class="lineNum">     479 </span>            :     _LIBCPP_INLINE_VISIBILITY explicit vector(const allocator_type&amp; __a)
 <span class="lineNum">     480 </span>            : #if _LIBCPP_STD_VER &lt;= 14
 <span class="lineNum">     481 </span>            :         _NOEXCEPT_(is_nothrow_copy_constructible&lt;allocator_type&gt;::value)
@@ -692,13 +692,13 @@
 <a name="630"><span class="lineNum">     630 </span>            : </a>
 <span class="lineNum">     631 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     632 </span>            :     size_type size() const _NOEXCEPT
-<a name="633"><span class="lineNum">     633 </span><span class="lineCov">    1133974 :         {return static_cast&lt;size_type&gt;(this-&gt;__end_ - this-&gt;__begin_);}</span></a>
+<a name="633"><span class="lineNum">     633 </span><span class="lineCov">    1554767 :         {return static_cast&lt;size_type&gt;(this-&gt;__end_ - this-&gt;__begin_);}</span></a>
 <span class="lineNum">     634 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     635 </span>            :     size_type capacity() const _NOEXCEPT
-<a name="636"><span class="lineNum">     636 </span><span class="lineCov">     637038 :         {return __base::capacity();}</span></a>
+<a name="636"><span class="lineNum">     636 </span><span class="lineCov">     804596 :         {return __base::capacity();}</span></a>
 <span class="lineNum">     637 </span>            :     _LIBCPP_NODISCARD_AFTER_CXX17 _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     638 </span>            :     bool empty() const _NOEXCEPT
-<span class="lineNum">     639 </span><span class="lineCov">       7771 :         {return this-&gt;__begin_ == this-&gt;__end_;}</span>
+<span class="lineNum">     639 </span><span class="lineCov">       9250 :         {return this-&gt;__begin_ == this-&gt;__end_;}</span>
 <span class="lineNum">     640 </span>            :     size_type max_size() const _NOEXCEPT;
 <span class="lineNum">     641 </span>            :     void reserve(size_type __n);
 <span class="lineNum">     642 </span>            :     void shrink_to_fit() _NOEXCEPT;
@@ -721,7 +721,7 @@
 <span class="lineNum">     659 </span>            :     _LIBCPP_INLINE_VISIBILITY reference       back()
 <span class="lineNum">     660 </span>            :     {
 <span class="lineNum">     661 </span>            :         _LIBCPP_ASSERT(!empty(), &quot;back() called for empty vector&quot;);
-<span class="lineNum">     662 </span><span class="lineCov">       8305 :         return *(this-&gt;__end_ - 1);</span>
+<span class="lineNum">     662 </span><span class="lineCov">       9940 :         return *(this-&gt;__end_ - 1);</span>
 <span class="lineNum">     663 </span>            :     }
 <span class="lineNum">     664 </span>            :     _LIBCPP_INLINE_VISIBILITY const_reference back()  const
 <span class="lineNum">     665 </span>            :     {
@@ -734,7 +734,7 @@
 <a name="672"><span class="lineNum">     672 </span>            :         {return _VSTD::__to_raw_pointer(this-&gt;__begin_);}</a>
 <span class="lineNum">     673 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     674 </span>            :     const value_type* data() const _NOEXCEPT
-<span class="lineNum">     675 </span><span class="lineCov">    1281132 :         {return _VSTD::__to_raw_pointer(this-&gt;__begin_);}</span>
+<span class="lineNum">     675 </span><span class="lineCov">    1617764 :         {return _VSTD::__to_raw_pointer(this-&gt;__begin_);}</span>
 <span class="lineNum">     676 </span>            : 
 <span class="lineNum">     677 </span>            : #ifdef _LIBCPP_CXX03_LANG
 <span class="lineNum">     678 </span>            :     _LIBCPP_INLINE_VISIBILITY
@@ -807,11 +807,11 @@
 <span class="lineNum">     745 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     746 </span>            :     void clear() _NOEXCEPT
 <span class="lineNum">     747 </span>            :     {
-<span class="lineNum">     748 </span><span class="lineCov">         49 :         size_type __old_size = size();</span>
-<span class="lineNum">     749 </span><span class="lineCov">         49 :         __base::clear();</span>
-<span class="lineNum">     750 </span><span class="lineCov">         49 :         __annotate_shrink(__old_size);</span>
-<span class="lineNum">     751 </span><span class="lineCov">         49 :         __invalidate_all_iterators();</span>
-<span class="lineNum">     752 </span><span class="lineCov">         49 :     }</span>
+<span class="lineNum">     748 </span><span class="lineCov">         67 :         size_type __old_size = size();</span>
+<span class="lineNum">     749 </span><span class="lineCov">         67 :         __base::clear();</span>
+<span class="lineNum">     750 </span><span class="lineCov">         67 :         __annotate_shrink(__old_size);</span>
+<span class="lineNum">     751 </span><span class="lineCov">         67 :         __invalidate_all_iterators();</span>
+<span class="lineNum">     752 </span><span class="lineCov">         67 :     }</span>
 <span class="lineNum">     753 </span>            : 
 <span class="lineNum">     754 </span>            :     void resize(size_type __sz);
 <span class="lineNum">     755 </span>            :     void resize(size_type __sz, const_reference __x);
@@ -867,11 +867,11 @@
 <span class="lineNum">     805 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     806 </span>            :     void __destruct_at_end(pointer __new_last) _NOEXCEPT
 <span class="lineNum">     807 </span>            :     {
-<span class="lineNum">     808 </span><span class="lineCov">       8675 :         __invalidate_iterators_past(__new_last);</span>
-<span class="lineNum">     809 </span><span class="lineCov">       8675 :         size_type __old_size = size();</span>
-<span class="lineNum">     810 </span><span class="lineCov">       8675 :         __base::__destruct_at_end(__new_last);</span>
-<span class="lineNum">     811 </span><span class="lineCov">       8675 :         __annotate_shrink(__old_size);</span>
-<span class="lineNum">     812 </span><span class="lineCov">       8675 :     }</span>
+<span class="lineNum">     808 </span><span class="lineCov">      10212 :         __invalidate_iterators_past(__new_last);</span>
+<span class="lineNum">     809 </span><span class="lineCov">      10212 :         size_type __old_size = size();</span>
+<span class="lineNum">     810 </span><span class="lineCov">      10212 :         __base::__destruct_at_end(__new_last);</span>
+<span class="lineNum">     811 </span><span class="lineCov">      10212 :         __annotate_shrink(__old_size);</span>
+<span class="lineNum">     812 </span><span class="lineCov">      10212 :     }</span>
 <span class="lineNum">     813 </span>            : 
 <span class="lineNum">     814 </span>            : #ifndef _LIBCPP_CXX03_LANG
 <span class="lineNum">     815 </span>            :     template &lt;class _Up&gt; void __push_back_slow_path(_Up&amp;&amp; __x);
@@ -898,19 +898,19 @@
 <a name="836"><span class="lineNum">     836 </span>            : #else</a>
 <span class="lineNum">     837 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     838 </span>            :     void __annotate_contiguous_container(const void*, const void*, const void*,
-<span class="lineNum">     839 </span><span class="lineCov">     320283 :                                          const void*) const {}</span>
+<span class="lineNum">     839 </span><span class="lineCov">     404441 :                                          const void*) const {}</span>
 <a name="840"><span class="lineNum">     840 </span>            : #endif</a>
 <span class="lineNum">     841 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     842 </span>            :     void __annotate_new(size_type __current_size) const {
-<span class="lineNum">     843 </span><span class="lineCov">     614008 :       __annotate_contiguous_container(data(), data() + capacity(),</span>
-<span class="lineNum">     844 </span><span class="lineCov">     307004 :                                       data() + capacity(), data() + __current_size);</span>
-<span class="lineNum">     845 </span><span class="lineCov">     307004 :     }</span>
+<span class="lineNum">     843 </span><span class="lineCov">     777638 :       __annotate_contiguous_container(data(), data() + capacity(),</span>
+<span class="lineNum">     844 </span><span class="lineCov">     388819 :                                       data() + capacity(), data() + __current_size);</span>
+<span class="lineNum">     845 </span><span class="lineCov">     388819 :     }</span>
 <a name="846"><span class="lineNum">     846 </span>            : </a>
 <span class="lineNum">     847 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     848 </span>            :     void __annotate_delete() const {
-<span class="lineNum">     849 </span><span class="lineCov">       9110 :       __annotate_contiguous_container(data(), data() + capacity(),</span>
-<span class="lineNum">     850 </span><span class="lineCov">       4555 :                                       data() + size(), data() + capacity());</span>
-<span class="lineNum">     851 </span><span class="lineCov">       4555 :     }</span>
+<span class="lineNum">     849 </span><span class="lineCov">      10686 :       __annotate_contiguous_container(data(), data() + capacity(),</span>
+<span class="lineNum">     850 </span><span class="lineCov">       5343 :                                       data() + size(), data() + capacity());</span>
+<span class="lineNum">     851 </span><span class="lineCov">       5343 :     }</span>
 <span class="lineNum">     852 </span>            : 
 <span class="lineNum">     853 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     854 </span>            :     void __annotate_increase(size_type __n) const
@@ -922,9 +922,9 @@
 <span class="lineNum">     860 </span>            :     _LIBCPP_INLINE_VISIBILITY
 <span class="lineNum">     861 </span>            :     void __annotate_shrink(size_type __old_size) const
 <span class="lineNum">     862 </span>            :     {
-<span class="lineNum">     863 </span><span class="lineCov">      17448 :       __annotate_contiguous_container(data(), data() + capacity(),</span>
-<span class="lineNum">     864 </span><span class="lineCov">       8724 :                                       data() + __old_size, data() + size());</span>
-<span class="lineNum">     865 </span><span class="lineCov">       8724 :     }</span>
+<span class="lineNum">     863 </span><span class="lineCov">      20558 :       __annotate_contiguous_container(data(), data() + capacity(),</span>
+<span class="lineNum">     864 </span><span class="lineCov">      10279 :                                       data() + __old_size, data() + size());</span>
+<span class="lineNum">     865 </span><span class="lineCov">      10279 :     }</span>
 <span class="lineNum">     866 </span>            : #ifndef _LIBCPP_HAS_NO_ASAN
 <span class="lineNum">     867 </span>            :     // The annotation for size increase should happen before the actual increase,
 <span class="lineNum">     868 </span>            :     // but if an exception is thrown after that the annotation has to be undone.
@@ -945,8 +945,8 @@
 <span class="lineNum">     883 </span>            : #else
 <a name="884"><span class="lineNum">     884 </span>            :     struct __RAII_IncreaseAnnotator {</a>
 <a name="885"><span class="lineNum">     885 </span>            :       _LIBCPP_INLINE_VISIBILITY</a>
-<span class="lineNum">     886 </span><span class="lineCov">     605732 :       __RAII_IncreaseAnnotator(const vector &amp;, size_type = 1) {}</span>
-<span class="lineNum">     887 </span><span class="lineCov">     302866 :       _LIBCPP_INLINE_VISIBILITY void __done() {}</span>
+<span class="lineNum">     886 </span><span class="lineCov">     768068 :       __RAII_IncreaseAnnotator(const vector &amp;, size_type = 1) {}</span>
+<span class="lineNum">     887 </span><span class="lineCov">     384034 :       _LIBCPP_INLINE_VISIBILITY void __done() {}</span>
 <span class="lineNum">     888 </span>            :     };
 <span class="lineNum">     889 </span>            : #endif
 <span class="lineNum">     890 </span>            : 
@@ -956,15 +956,15 @@
 <span class="lineNum">     894 </span>            : void
 <span class="lineNum">     895 </span>            : vector&lt;_Tp, _Allocator&gt;::__swap_out_circular_buffer(__split_buffer&lt;value_type, allocator_type&amp;&gt;&amp; __v)
 <span class="lineNum">     896 </span>            : {
-<span class="lineNum">     897 </span><span class="lineCov">       4555 :     __annotate_delete();</span>
-<span class="lineNum">     898 </span><span class="lineCov">       4555 :     __alloc_traits::__construct_backward(this-&gt;__alloc(), this-&gt;__begin_, this-&gt;__end_, __v.__begin_);</span>
-<span class="lineNum">     899 </span><span class="lineCov">       4555 :     _VSTD::swap(this-&gt;__begin_, __v.__begin_);</span>
-<span class="lineNum">     900 </span><span class="lineCov">       4555 :     _VSTD::swap(this-&gt;__end_, __v.__end_);</span>
-<span class="lineNum">     901 </span><span class="lineCov">       4555 :     _VSTD::swap(this-&gt;__end_cap(), __v.__end_cap());</span>
-<span class="lineNum">     902 </span><span class="lineCov">       4555 :     __v.__first_ = __v.__begin_;</span>
-<span class="lineNum">     903 </span><span class="lineCov">       4555 :     __annotate_new(size());</span>
-<span class="lineNum">     904 </span><span class="lineCov">       4555 :     __invalidate_all_iterators();</span>
-<span class="lineNum">     905 </span><span class="lineCov">       4555 : }</span>
+<span class="lineNum">     897 </span><span class="lineCov">       5343 :     __annotate_delete();</span>
+<span class="lineNum">     898 </span><span class="lineCov">       5343 :     __alloc_traits::__construct_backward(this-&gt;__alloc(), this-&gt;__begin_, this-&gt;__end_, __v.__begin_);</span>
+<span class="lineNum">     899 </span><span class="lineCov">       5343 :     _VSTD::swap(this-&gt;__begin_, __v.__begin_);</span>
+<span class="lineNum">     900 </span><span class="lineCov">       5343 :     _VSTD::swap(this-&gt;__end_, __v.__end_);</span>
+<span class="lineNum">     901 </span><span class="lineCov">       5343 :     _VSTD::swap(this-&gt;__end_cap(), __v.__end_cap());</span>
+<span class="lineNum">     902 </span><span class="lineCov">       5343 :     __v.__first_ = __v.__begin_;</span>
+<span class="lineNum">     903 </span><span class="lineCov">       5343 :     __annotate_new(size());</span>
+<span class="lineNum">     904 </span><span class="lineCov">       5343 :     __invalidate_all_iterators();</span>
+<span class="lineNum">     905 </span><span class="lineCov">       5343 : }</span>
 <span class="lineNum">     906 </span>            : 
 <span class="lineNum">     907 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <span class="lineNum">     908 </span>            : typename vector&lt;_Tp, _Allocator&gt;::pointer
@@ -994,31 +994,31 @@
 <span class="lineNum">     932 </span>            : void
 <span class="lineNum">     933 </span>            : vector&lt;_Tp, _Allocator&gt;::allocate(size_type __n)
 <span class="lineNum">     934 </span>            : {
-<span class="lineNum">     935 </span><span class="lineCov">     302449 :     if (__n &gt; max_size())</span>
+<span class="lineNum">     935 </span><span class="lineCov">     383476 :     if (__n &gt; max_size())</span>
 <span class="lineNum">     936 </span><span class="lineNoCov">          0 :         this-&gt;__throw_length_error();</span>
-<span class="lineNum">     937 </span><span class="lineCov">     302449 :     this-&gt;__begin_ = this-&gt;__end_ = __alloc_traits::allocate(this-&gt;__alloc(), __n);</span>
-<span class="lineNum">     938 </span><span class="lineCov">     302449 :     this-&gt;__end_cap() = this-&gt;__begin_ + __n;</span>
-<span class="lineNum">     939 </span><span class="lineCov">     302449 :     __annotate_new(0);</span>
-<span class="lineNum">     940 </span><span class="lineCov">     302449 : }</span>
+<span class="lineNum">     937 </span><span class="lineCov">     383476 :     this-&gt;__begin_ = this-&gt;__end_ = __alloc_traits::allocate(this-&gt;__alloc(), __n);</span>
+<span class="lineNum">     938 </span><span class="lineCov">     383476 :     this-&gt;__end_cap() = this-&gt;__begin_ + __n;</span>
+<span class="lineNum">     939 </span><span class="lineCov">     383476 :     __annotate_new(0);</span>
+<span class="lineNum">     940 </span><span class="lineCov">     383476 : }</span>
 <span class="lineNum">     941 </span>            : 
 <a name="942"><span class="lineNum">     942 </span>            : template &lt;class _Tp, class _Allocator&gt;</a>
 <span class="lineNum">     943 </span>            : void
 <span class="lineNum">     944 </span>            : vector&lt;_Tp, _Allocator&gt;::deallocate() _NOEXCEPT
 <span class="lineNum">     945 </span>            : {
-<span class="lineNum">     946 </span><span class="lineNoCov">          0 :     if (this-&gt;__begin_ != nullptr)</span>
+<span class="lineNum">     946 </span><span class="lineCov">          3 :     if (this-&gt;__begin_ != nullptr)</span>
 <span class="lineNum">     947 </span>            :     {
-<span class="lineNum">     948 </span><span class="lineNoCov">          0 :         clear();</span>
-<span class="lineNum">     949 </span><span class="lineNoCov">          0 :         __alloc_traits::deallocate(this-&gt;__alloc(), this-&gt;__begin_, capacity());</span>
-<span class="lineNum">     950 </span><span class="lineNoCov">          0 :         this-&gt;__begin_ = this-&gt;__end_ = this-&gt;__end_cap() = nullptr;</span>
-<span class="lineNum">     951 </span><span class="lineNoCov">          0 :     }</span>
-<span class="lineNum">     952 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     948 </span><span class="lineCov">          3 :         clear();</span>
+<span class="lineNum">     949 </span><span class="lineCov">          3 :         __alloc_traits::deallocate(this-&gt;__alloc(), this-&gt;__begin_, capacity());</span>
+<span class="lineNum">     950 </span><span class="lineCov">          3 :         this-&gt;__begin_ = this-&gt;__end_ = this-&gt;__end_cap() = nullptr;</span>
+<span class="lineNum">     951 </span><span class="lineCov">          3 :     }</span>
+<span class="lineNum">     952 </span><span class="lineCov">          3 : }</span>
 <span class="lineNum">     953 </span>            : 
 <a name="954"><span class="lineNum">     954 </span>            : template &lt;class _Tp, class _Allocator&gt;</a>
 <span class="lineNum">     955 </span>            : typename vector&lt;_Tp, _Allocator&gt;::size_type
 <span class="lineNum">     956 </span>            : vector&lt;_Tp, _Allocator&gt;::max_size() const _NOEXCEPT
 <span class="lineNum">     957 </span>            : {
-<span class="lineNum">     958 </span><span class="lineCov">     921015 :     return _VSTD::min&lt;size_type&gt;(__alloc_traits::max_size(this-&gt;__alloc()),</span>
-<span class="lineNum">     959 </span><span class="lineCov">     307005 :                                  numeric_limits&lt;difference_type&gt;::max());</span>
+<span class="lineNum">     958 </span><span class="lineCov">    1166469 :     return _VSTD::min&lt;size_type&gt;(__alloc_traits::max_size(this-&gt;__alloc()),</span>
+<span class="lineNum">     959 </span><span class="lineCov">     388823 :                                  numeric_limits&lt;difference_type&gt;::max());</span>
 <span class="lineNum">     960 </span>            : }
 <span class="lineNum">     961 </span>            : 
 <span class="lineNum">     962 </span>            : //  Precondition:  __new_size &gt; capacity()
@@ -1027,14 +1027,14 @@
 <span class="lineNum">     965 </span>            : typename vector&lt;_Tp, _Allocator&gt;::size_type
 <span class="lineNum">     966 </span>            : vector&lt;_Tp, _Allocator&gt;::__recommend(size_type __new_size) const
 <span class="lineNum">     967 </span>            : {
-<span class="lineNum">     968 </span><span class="lineCov">       4554 :     const size_type __ms = max_size();</span>
-<span class="lineNum">     969 </span><span class="lineCov">       4554 :     if (__new_size &gt; __ms)</span>
+<span class="lineNum">     968 </span><span class="lineCov">       5345 :     const size_type __ms = max_size();</span>
+<span class="lineNum">     969 </span><span class="lineCov">       5345 :     if (__new_size &gt; __ms)</span>
 <span class="lineNum">     970 </span><span class="lineNoCov">          0 :         this-&gt;__throw_length_error();</span>
-<span class="lineNum">     971 </span><span class="lineCov">       4554 :     const size_type __cap = capacity();</span>
-<span class="lineNum">     972 </span><span class="lineCov">       4554 :     if (__cap &gt;= __ms / 2)</span>
+<span class="lineNum">     971 </span><span class="lineCov">       5345 :     const size_type __cap = capacity();</span>
+<span class="lineNum">     972 </span><span class="lineCov">       5345 :     if (__cap &gt;= __ms / 2)</span>
 <span class="lineNum">     973 </span><span class="lineNoCov">          0 :         return __ms;</span>
-<span class="lineNum">     974 </span><span class="lineCov">       4554 :     return _VSTD::max&lt;size_type&gt;(2*__cap, __new_size);</span>
-<span class="lineNum">     975 </span><span class="lineCov">       4554 : }</span>
+<span class="lineNum">     974 </span><span class="lineCov">       5345 :     return _VSTD::max&lt;size_type&gt;(2*__cap, __new_size);</span>
+<span class="lineNum">     975 </span><span class="lineCov">       5345 : }</span>
 <span class="lineNum">     976 </span>            : 
 <span class="lineNum">     977 </span>            : //  Default constructs __n objects starting at __end_
 <span class="lineNum">     978 </span>            : //  throws if construction throws
@@ -1087,11 +1087,11 @@
 <span class="lineNum">    1025 </span>            : &gt;::type
 <span class="lineNum">    1026 </span>            : vector&lt;_Tp, _Allocator&gt;::__construct_at_end(_ForwardIterator __first, _ForwardIterator __last, size_type __n)
 <span class="lineNum">    1027 </span>            : {
-<span class="lineNum">    1028 </span><span class="lineCov">     302449 :     allocator_type&amp; __a = this-&gt;__alloc();</span>
-<span class="lineNum">    1029 </span><span class="lineCov">     302449 :     __RAII_IncreaseAnnotator __annotator(*this, __n);</span>
-<span class="lineNum">    1030 </span><span class="lineCov">     302449 :     __alloc_traits::__construct_range_forward(__a, __first, __last, this-&gt;__end_);</span>
-<span class="lineNum">    1031 </span><span class="lineCov">     302449 :     __annotator.__done();</span>
-<span class="lineNum">    1032 </span><span class="lineCov">     302449 : }</span>
+<span class="lineNum">    1028 </span><span class="lineCov">     383476 :     allocator_type&amp; __a = this-&gt;__alloc();</span>
+<span class="lineNum">    1029 </span><span class="lineCov">     383476 :     __RAII_IncreaseAnnotator __annotator(*this, __n);</span>
+<span class="lineNum">    1030 </span><span class="lineCov">     383476 :     __alloc_traits::__construct_range_forward(__a, __first, __last, this-&gt;__end_);</span>
+<span class="lineNum">    1031 </span><span class="lineCov">     383476 :     __annotator.__done();</span>
+<span class="lineNum">    1032 </span><span class="lineCov">     383476 : }</span>
 <span class="lineNum">    1033 </span>            : 
 <span class="lineNum">    1034 </span>            : //  Default constructs __n objects starting at __end_
 <span class="lineNum">    1035 </span>            : //  throws if construction throws
@@ -1101,16 +1101,16 @@
 <span class="lineNum">    1039 </span>            : void
 <span class="lineNum">    1040 </span>            : vector&lt;_Tp, _Allocator&gt;::__append(size_type __n)
 <span class="lineNum">    1041 </span>            : {
-<span class="lineNum">    1042 </span><span class="lineCov">         59 :     if (static_cast&lt;size_type&gt;(this-&gt;__end_cap() - this-&gt;__end_) &gt;= __n)</span>
+<span class="lineNum">    1042 </span><span class="lineCov">         80 :     if (static_cast&lt;size_type&gt;(this-&gt;__end_cap() - this-&gt;__end_) &gt;= __n)</span>
 <span class="lineNum">    1043 </span><span class="lineCov">          1 :         this-&gt;__construct_at_end(__n);</span>
 <span class="lineNum">    1044 </span>            :     else
 <span class="lineNum">    1045 </span>            :     {
-<span class="lineNum">    1046 </span><span class="lineCov">         58 :         allocator_type&amp; __a = this-&gt;__alloc();</span>
-<span class="lineNum">    1047 </span><span class="lineCov">         58 :         __split_buffer&lt;value_type, allocator_type&amp;&gt; __v(__recommend(size() + __n), size(), __a);</span>
-<span class="lineNum">    1048 </span><span class="lineCov">         58 :         __v.__construct_at_end(__n);</span>
-<span class="lineNum">    1049 </span><span class="lineCov">         58 :         __swap_out_circular_buffer(__v);</span>
-<span class="lineNum">    1050 </span><span class="lineCov">         58 :     }</span>
-<span class="lineNum">    1051 </span><span class="lineCov">         59 : }</span>
+<span class="lineNum">    1046 </span><span class="lineCov">         79 :         allocator_type&amp; __a = this-&gt;__alloc();</span>
+<span class="lineNum">    1047 </span><span class="lineCov">         79 :         __split_buffer&lt;value_type, allocator_type&amp;&gt; __v(__recommend(size() + __n), size(), __a);</span>
+<span class="lineNum">    1048 </span><span class="lineCov">         79 :         __v.__construct_at_end(__n);</span>
+<span class="lineNum">    1049 </span><span class="lineCov">         79 :         __swap_out_circular_buffer(__v);</span>
+<span class="lineNum">    1050 </span><span class="lineCov">         79 :     }</span>
+<span class="lineNum">    1051 </span><span class="lineCov">         80 : }</span>
 <span class="lineNum">    1052 </span>            : 
 <span class="lineNum">    1053 </span>            : //  Default constructs __n objects starting at __end_
 <span class="lineNum">    1054 </span>            : //  throws if construction throws
@@ -1263,18 +1263,18 @@
 <a name="1201"><span class="lineNum">    1201 </span>            : </a>
 <span class="lineNum">    1202 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <span class="lineNum">    1203 </span>            : vector&lt;_Tp, _Allocator&gt;::vector(const vector&amp; __x)
-<span class="lineNum">    1204 </span><span class="lineCov">    1088699 :     : __base(__alloc_traits::select_on_container_copy_construction(__x.__alloc()))</span>
-<span class="lineNum">    1205 </span><span class="lineCov">    2177398 : {</span>
+<span class="lineNum">    1204 </span><span class="lineCov">    1498925 :     : __base(__alloc_traits::select_on_container_copy_construction(__x.__alloc()))</span>
+<span class="lineNum">    1205 </span><span class="lineCov">    2997850 : {</span>
 <span class="lineNum">    1206 </span>            : #if _LIBCPP_DEBUG_LEVEL &gt;= 2
 <span class="lineNum">    1207 </span>            :     __get_db()-&gt;__insert_c(this);
 <span class="lineNum">    1208 </span>            : #endif
-<span class="lineNum">    1209 </span><span class="lineCov">    1088699 :     size_type __n = __x.size();</span>
-<span class="lineNum">    1210 </span><span class="lineCov">    1088699 :     if (__n &gt; 0)</span>
+<span class="lineNum">    1209 </span><span class="lineCov">    1498925 :     size_type __n = __x.size();</span>
+<span class="lineNum">    1210 </span><span class="lineCov">    1498925 :     if (__n &gt; 0)</span>
 <span class="lineNum">    1211 </span>            :     {
-<span class="lineNum">    1212 </span><span class="lineCov">     302449 :         allocate(__n);</span>
-<span class="lineNum">    1213 </span><span class="lineCov">     302449 :         __construct_at_end(__x.__begin_, __x.__end_, __n);</span>
-<span class="lineNum">    1214 </span><span class="lineCov">     302449 :     }</span>
-<span class="lineNum">    1215 </span><span class="lineCov">    2177398 : }</span>
+<span class="lineNum">    1212 </span><span class="lineCov">     383473 :         allocate(__n);</span>
+<span class="lineNum">    1213 </span><span class="lineCov">     383473 :         __construct_at_end(__x.__begin_, __x.__end_, __n);</span>
+<span class="lineNum">    1214 </span><span class="lineCov">     383473 :     }</span>
+<span class="lineNum">    1215 </span><span class="lineCov">    2997850 : }</span>
 <span class="lineNum">    1216 </span>            : 
 <span class="lineNum">    1217 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <span class="lineNum">    1218 </span>            : vector&lt;_Tp, _Allocator&gt;::vector(const vector&amp; __x, const allocator_type&amp; __a)
@@ -1415,12 +1415,12 @@
 <span class="lineNum">    1353 </span>            : vector&lt;_Tp, _Allocator&gt;&amp;
 <span class="lineNum">    1354 </span>            : vector&lt;_Tp, _Allocator&gt;::operator=(const vector&amp; __x)
 <span class="lineNum">    1355 </span>            : {
-<span class="lineNum">    1356 </span><span class="lineCov">        642 :     if (this != &amp;__x)</span>
+<span class="lineNum">    1356 </span><span class="lineCov">        645 :     if (this != &amp;__x)</span>
 <span class="lineNum">    1357 </span>            :     {
-<span class="lineNum">    1358 </span><span class="lineCov">        642 :         __base::__copy_assign_alloc(__x);</span>
-<span class="lineNum">    1359 </span><span class="lineCov">        642 :         assign(__x.__begin_, __x.__end_);</span>
-<span class="lineNum">    1360 </span><span class="lineCov">        642 :     }</span>
-<span class="lineNum">    1361 </span><span class="lineCov">        642 :     return *this;</span>
+<span class="lineNum">    1358 </span><span class="lineCov">        645 :         __base::__copy_assign_alloc(__x);</span>
+<span class="lineNum">    1359 </span><span class="lineCov">        645 :         assign(__x.__begin_, __x.__end_);</span>
+<span class="lineNum">    1360 </span><span class="lineCov">        645 :     }</span>
+<span class="lineNum">    1361 </span><span class="lineCov">        645 :     return *this;</span>
 <span class="lineNum">    1362 </span>            : }
 <span class="lineNum">    1363 </span>            : 
 <span class="lineNum">    1364 </span>            : template &lt;class _Tp, class _Allocator&gt;
@@ -1453,8 +1453,8 @@
 <span class="lineNum">    1391 </span>            : &gt;::type
 <span class="lineNum">    1392 </span>            : vector&lt;_Tp, _Allocator&gt;::assign(_ForwardIterator __first, _ForwardIterator __last)
 <span class="lineNum">    1393 </span>            : {
-<span class="lineNum">    1394 </span><span class="lineCov">        642 :     size_type __new_size = static_cast&lt;size_type&gt;(_VSTD::distance(__first, __last));</span>
-<span class="lineNum">    1395 </span><span class="lineCov">        642 :     if (__new_size &lt;= capacity())</span>
+<span class="lineNum">    1394 </span><span class="lineCov">        645 :     size_type __new_size = static_cast&lt;size_type&gt;(_VSTD::distance(__first, __last));</span>
+<span class="lineNum">    1395 </span><span class="lineCov">        645 :     if (__new_size &lt;= capacity())</span>
 <span class="lineNum">    1396 </span>            :     {
 <span class="lineNum">    1397 </span><span class="lineCov">        642 :         _ForwardIterator __mid = __last;</span>
 <span class="lineNum">    1398 </span><span class="lineCov">        642 :         bool __growing = false;</span>
@@ -1472,12 +1472,12 @@
 <span class="lineNum">    1410 </span><span class="lineCov">        642 :     }</span>
 <span class="lineNum">    1411 </span>            :     else
 <span class="lineNum">    1412 </span>            :     {
-<span class="lineNum">    1413 </span><span class="lineNoCov">          0 :         deallocate();</span>
-<span class="lineNum">    1414 </span><span class="lineNoCov">          0 :         allocate(__recommend(__new_size));</span>
-<span class="lineNum">    1415 </span><span class="lineNoCov">          0 :         __construct_at_end(__first, __last, __new_size);</span>
+<span class="lineNum">    1413 </span><span class="lineCov">          3 :         deallocate();</span>
+<span class="lineNum">    1414 </span><span class="lineCov">          3 :         allocate(__recommend(__new_size));</span>
+<span class="lineNum">    1415 </span><span class="lineCov">          3 :         __construct_at_end(__first, __last, __new_size);</span>
 <span class="lineNum">    1416 </span>            :     }
-<span class="lineNum">    1417 </span><span class="lineCov">        642 :     __invalidate_all_iterators();</span>
-<span class="lineNum">    1418 </span><span class="lineCov">        642 : }</span>
+<span class="lineNum">    1417 </span><span class="lineCov">        645 :     __invalidate_all_iterators();</span>
+<span class="lineNum">    1418 </span><span class="lineCov">        645 : }</span>
 <span class="lineNum">    1419 </span>            : 
 <span class="lineNum">    1420 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <span class="lineNum">    1421 </span>            : void
@@ -1521,7 +1521,7 @@
 <span class="lineNum">    1459 </span>            : #if _LIBCPP_DEBUG_LEVEL &gt;= 2
 <span class="lineNum">    1460 </span>            :     return const_iterator(this, __p);
 <span class="lineNum">    1461 </span>            : #else
-<span class="lineNum">    1462 </span><span class="lineCov">          6 :     return const_iterator(__p);</span>
+<span class="lineNum">    1462 </span><span class="lineCov">       1725 :     return const_iterator(__p);</span>
 <span class="lineNum">    1463 </span>            : #endif
 <span class="lineNum">    1464 </span>            : }
 <span class="lineNum">    1465 </span>            : 
@@ -1538,7 +1538,7 @@
 <span class="lineNum">    1476 </span>            : typename vector&lt;_Tp, _Allocator&gt;::const_iterator
 <span class="lineNum">    1477 </span>            : vector&lt;_Tp, _Allocator&gt;::begin() const _NOEXCEPT
 <span class="lineNum">    1478 </span>            : {
-<span class="lineNum">    1479 </span><span class="lineCov">          3 :     return __make_iter(this-&gt;__begin_);</span>
+<span class="lineNum">    1479 </span><span class="lineCov">       1149 :     return __make_iter(this-&gt;__begin_);</span>
 <span class="lineNum">    1480 </span>            : }
 <span class="lineNum">    1481 </span>            : 
 <span class="lineNum">    1482 </span>            : template &lt;class _Tp, class _Allocator&gt;
@@ -1554,7 +1554,7 @@
 <span class="lineNum">    1492 </span>            : typename vector&lt;_Tp, _Allocator&gt;::const_iterator
 <span class="lineNum">    1493 </span>            : vector&lt;_Tp, _Allocator&gt;::end() const _NOEXCEPT
 <span class="lineNum">    1494 </span>            : {
-<span class="lineNum">    1495 </span><span class="lineCov">          3 :     return __make_iter(this-&gt;__end_);</span>
+<span class="lineNum">    1495 </span><span class="lineCov">        576 :     return __make_iter(this-&gt;__end_);</span>
 <span class="lineNum">    1496 </span>            : }
 <span class="lineNum">    1497 </span>            : 
 <span class="lineNum">    1498 </span>            : template &lt;class _Tp, class _Allocator&gt;
@@ -1563,7 +1563,7 @@
 <span class="lineNum">    1501 </span>            : vector&lt;_Tp, _Allocator&gt;::operator[](size_type __n)
 <span class="lineNum">    1502 </span>            : {
 <span class="lineNum">    1503 </span>            :     _LIBCPP_ASSERT(__n &lt; size(), &quot;vector[] index out of bounds&quot;);
-<span class="lineNum">    1504 </span><span class="lineCov">      31679 :     return this-&gt;__begin_[__n];</span>
+<span class="lineNum">    1504 </span><span class="lineCov">      36117 :     return this-&gt;__begin_[__n];</span>
 <span class="lineNum">    1505 </span>            : }
 <span class="lineNum">    1506 </span>            : 
 <span class="lineNum">    1507 </span>            : template &lt;class _Tp, class _Allocator&gt;
@@ -1572,7 +1572,7 @@
 <span class="lineNum">    1510 </span>            : vector&lt;_Tp, _Allocator&gt;::operator[](size_type __n) const
 <span class="lineNum">    1511 </span>            : {
 <span class="lineNum">    1512 </span>            :     _LIBCPP_ASSERT(__n &lt; size(), &quot;vector[] index out of bounds&quot;);
-<span class="lineNum">    1513 </span><span class="lineCov">       1320 :     return this-&gt;__begin_[__n];</span>
+<span class="lineNum">    1513 </span><span class="lineCov">       4630 :     return this-&gt;__begin_[__n];</span>
 <span class="lineNum">    1514 </span>            : }
 <span class="lineNum">    1515 </span>            : 
 <span class="lineNum">    1516 </span>            : template &lt;class _Tp, class _Allocator&gt;
@@ -1636,30 +1636,30 @@
 <span class="lineNum">    1574 </span>            : vector&lt;_Tp, _Allocator&gt;::__push_back_slow_path(_Up&amp; __x)
 <span class="lineNum">    1575 </span>            : #endif
 <span class="lineNum">    1576 </span>            : {
-<span class="lineNum">    1577 </span><span class="lineCov">       4496 :     allocator_type&amp; __a = this-&gt;__alloc();</span>
-<span class="lineNum">    1578 </span><span class="lineCov">       4496 :     __split_buffer&lt;value_type, allocator_type&amp;&gt; __v(__recommend(size() + 1), size(), __a);</span>
+<span class="lineNum">    1577 </span><span class="lineCov">       5263 :     allocator_type&amp; __a = this-&gt;__alloc();</span>
+<span class="lineNum">    1578 </span><span class="lineCov">       5263 :     __split_buffer&lt;value_type, allocator_type&amp;&gt; __v(__recommend(size() + 1), size(), __a);</span>
 <span class="lineNum">    1579 </span>            :     // __v.push_back(_VSTD::forward&lt;_Up&gt;(__x));
-<span class="lineNum">    1580 </span><span class="lineCov">       4496 :     __alloc_traits::construct(__a, _VSTD::__to_raw_pointer(__v.__end_), _VSTD::forward&lt;_Up&gt;(__x));</span>
-<span class="lineNum">    1581 </span><span class="lineCov">       4496 :     __v.__end_++;</span>
-<span class="lineNum">    1582 </span><span class="lineCov">       4496 :     __swap_out_circular_buffer(__v);</span>
-<span class="lineNum">    1583 </span><span class="lineCov">       4496 : }</span>
+<span class="lineNum">    1580 </span><span class="lineCov">       5263 :     __alloc_traits::construct(__a, _VSTD::__to_raw_pointer(__v.__end_), _VSTD::forward&lt;_Up&gt;(__x));</span>
+<span class="lineNum">    1581 </span><span class="lineCov">       5263 :     __v.__end_++;</span>
+<span class="lineNum">    1582 </span><span class="lineCov">       5263 :     __swap_out_circular_buffer(__v);</span>
+<span class="lineNum">    1583 </span><span class="lineCov">       5263 : }</span>
 <span class="lineNum">    1584 </span>            : 
 <span class="lineNum">    1585 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <a name="1586"><span class="lineNum">    1586 </span>            : inline _LIBCPP_INLINE_VISIBILITY</a>
 <span class="lineNum">    1587 </span>            : void
 <span class="lineNum">    1588 </span>            : vector&lt;_Tp, _Allocator&gt;::push_back(const_reference __x)
 <span class="lineNum">    1589 </span>            : {
-<span class="lineNum">    1590 </span><span class="lineCov">        440 :     if (this-&gt;__end_ != this-&gt;__end_cap())</span>
+<span class="lineNum">    1590 </span><span class="lineCov">        567 :     if (this-&gt;__end_ != this-&gt;__end_cap())</span>
 <span class="lineNum">    1591 </span>            :     {
-<span class="lineNum">    1592 </span><span class="lineCov">        400 :         __RAII_IncreaseAnnotator __annotator(*this);</span>
-<span class="lineNum">    1593 </span><span class="lineCov">        800 :         __alloc_traits::construct(this-&gt;__alloc(),</span>
-<span class="lineNum">    1594 </span><span class="lineCov">        400 :                                   _VSTD::__to_raw_pointer(this-&gt;__end_), __x);</span>
-<span class="lineNum">    1595 </span><span class="lineCov">        400 :         __annotator.__done();</span>
-<span class="lineNum">    1596 </span><span class="lineCov">        400 :         ++this-&gt;__end_;</span>
-<span class="lineNum">    1597 </span><span class="lineCov">        400 :     }</span>
+<span class="lineNum">    1592 </span><span class="lineCov">        511 :         __RAII_IncreaseAnnotator __annotator(*this);</span>
+<span class="lineNum">    1593 </span><span class="lineCov">       1022 :         __alloc_traits::construct(this-&gt;__alloc(),</span>
+<span class="lineNum">    1594 </span><span class="lineCov">        511 :                                   _VSTD::__to_raw_pointer(this-&gt;__end_), __x);</span>
+<span class="lineNum">    1595 </span><span class="lineCov">        511 :         __annotator.__done();</span>
+<span class="lineNum">    1596 </span><span class="lineCov">        511 :         ++this-&gt;__end_;</span>
+<span class="lineNum">    1597 </span><span class="lineCov">        511 :     }</span>
 <span class="lineNum">    1598 </span>            :     else
-<span class="lineNum">    1599 </span><span class="lineCov">         40 :         __push_back_slow_path(__x);</span>
-<span class="lineNum">    1600 </span><span class="lineCov">        440 : }</span>
+<span class="lineNum">    1599 </span><span class="lineCov">         56 :         __push_back_slow_path(__x);</span>
+<span class="lineNum">    1600 </span><span class="lineCov">        567 : }</span>
 <span class="lineNum">    1601 </span>            : 
 <span class="lineNum">    1602 </span>            : #ifndef _LIBCPP_CXX03_LANG
 <span class="lineNum">    1603 </span>            : 
@@ -1668,18 +1668,18 @@
 <span class="lineNum">    1606 </span>            : void
 <span class="lineNum">    1607 </span>            : vector&lt;_Tp, _Allocator&gt;::push_back(value_type&amp;&amp; __x)
 <span class="lineNum">    1608 </span>            : {
-<span class="lineNum">    1609 </span><span class="lineCov">       4463 :     if (this-&gt;__end_ &lt; this-&gt;__end_cap())</span>
+<span class="lineNum">    1609 </span><span class="lineCov">       5244 :     if (this-&gt;__end_ &lt; this-&gt;__end_cap())</span>
 <span class="lineNum">    1610 </span>            :     {
-<span class="lineNum">    1611 </span><span class="lineCov">          7 :         __RAII_IncreaseAnnotator __annotator(*this);</span>
-<span class="lineNum">    1612 </span><span class="lineCov">         14 :         __alloc_traits::construct(this-&gt;__alloc(),</span>
-<span class="lineNum">    1613 </span><span class="lineCov">          7 :                                   _VSTD::__to_raw_pointer(this-&gt;__end_),</span>
-<span class="lineNum">    1614 </span><span class="lineCov">          7 :                                   _VSTD::move(__x));</span>
-<span class="lineNum">    1615 </span><span class="lineCov">          7 :         __annotator.__done();</span>
-<span class="lineNum">    1616 </span><span class="lineCov">          7 :         ++this-&gt;__end_;</span>
-<span class="lineNum">    1617 </span><span class="lineCov">          7 :     }</span>
+<span class="lineNum">    1611 </span><span class="lineCov">         37 :         __RAII_IncreaseAnnotator __annotator(*this);</span>
+<span class="lineNum">    1612 </span><span class="lineCov">         74 :         __alloc_traits::construct(this-&gt;__alloc(),</span>
+<span class="lineNum">    1613 </span><span class="lineCov">         37 :                                   _VSTD::__to_raw_pointer(this-&gt;__end_),</span>
+<span class="lineNum">    1614 </span><span class="lineCov">         37 :                                   _VSTD::move(__x));</span>
+<span class="lineNum">    1615 </span><span class="lineCov">         37 :         __annotator.__done();</span>
+<span class="lineNum">    1616 </span><span class="lineCov">         37 :         ++this-&gt;__end_;</span>
+<span class="lineNum">    1617 </span><span class="lineCov">         37 :     }</span>
 <span class="lineNum">    1618 </span>            :     else
-<span class="lineNum">    1619 </span><span class="lineCov">       4456 :         __push_back_slow_path(_VSTD::move(__x));</span>
-<span class="lineNum">    1620 </span><span class="lineCov">       4463 : }</span>
+<span class="lineNum">    1619 </span><span class="lineCov">       5207 :         __push_back_slow_path(_VSTD::move(__x));</span>
+<span class="lineNum">    1620 </span><span class="lineCov">       5244 : }</span>
 <span class="lineNum">    1621 </span>            : 
 <span class="lineNum">    1622 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <span class="lineNum">    1623 </span>            : template &lt;class... _Args&gt;
@@ -1728,8 +1728,8 @@
 <span class="lineNum">    1666 </span>            : vector&lt;_Tp, _Allocator&gt;::pop_back()
 <span class="lineNum">    1667 </span>            : {
 <span class="lineNum">    1668 </span>            :     _LIBCPP_ASSERT(!empty(), &quot;vector::pop_back called for empty vector&quot;);
-<span class="lineNum">    1669 </span><span class="lineCov">       8033 :     this-&gt;__destruct_at_end(this-&gt;__end_ - 1);</span>
-<span class="lineNum">    1670 </span><span class="lineCov">       8033 : }</span>
+<span class="lineNum">    1669 </span><span class="lineCov">       9570 :     this-&gt;__destruct_at_end(this-&gt;__end_ - 1);</span>
+<span class="lineNum">    1670 </span><span class="lineCov">       9570 : }</span>
 <span class="lineNum">    1671 </span>            : 
 <span class="lineNum">    1672 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <span class="lineNum">    1673 </span>            : inline _LIBCPP_INLINE_VISIBILITY
@@ -2065,12 +2065,12 @@
 <span class="lineNum">    2003 </span>            : void
 <span class="lineNum">    2004 </span>            : vector&lt;_Tp, _Allocator&gt;::resize(size_type __sz)
 <span class="lineNum">    2005 </span>            : {
-<span class="lineNum">    2006 </span><span class="lineCov">         59 :     size_type __cs = size();</span>
-<span class="lineNum">    2007 </span><span class="lineCov">         59 :     if (__cs &lt; __sz)</span>
-<span class="lineNum">    2008 </span><span class="lineCov">         59 :         this-&gt;__append(__sz - __cs);</span>
+<span class="lineNum">    2006 </span><span class="lineCov">         80 :     size_type __cs = size();</span>
+<span class="lineNum">    2007 </span><span class="lineCov">         80 :     if (__cs &lt; __sz)</span>
+<span class="lineNum">    2008 </span><span class="lineCov">         80 :         this-&gt;__append(__sz - __cs);</span>
 <span class="lineNum">    2009 </span><span class="lineNoCov">          0 :     else if (__cs &gt; __sz)</span>
 <span class="lineNum">    2010 </span><span class="lineNoCov">          0 :         this-&gt;__destruct_at_end(this-&gt;__begin_ + __sz);</span>
-<span class="lineNum">    2011 </span><span class="lineCov">         59 : }</span>
+<span class="lineNum">    2011 </span><span class="lineCov">         80 : }</span>
 <span class="lineNum">    2012 </span>            : 
 <span class="lineNum">    2013 </span>            : template &lt;class _Tp, class _Allocator&gt;
 <span class="lineNum">    2014 </span>            : void
@@ -2170,7 +2170,7 @@
 <span class="lineNum">    2108 </span>            : #if _LIBCPP_DEBUG_LEVEL &gt;= 2
 <span class="lineNum">    2109 </span>            :     __get_db()-&gt;__invalidate_all(this);
 <span class="lineNum">    2110 </span>            : #endif  // _LIBCPP_DEBUG_LEVEL &gt;= 2
-<span class="lineNum">    2111 </span><span class="lineCov">       5246 : }</span>
+<span class="lineNum">    2111 </span><span class="lineCov">       6055 : }</span>
 <span class="lineNum">    2112 </span>            : 
 <span class="lineNum">    2113 </span>            : 
 <span class="lineNum">    2114 </span>            : template &lt;class _Tp, class _Allocator&gt;
@@ -2192,7 +2192,7 @@
 <span class="lineNum">    2130 </span>            : #else
 <span class="lineNum">    2131 </span>            :   ((void)__new_last);
 <span class="lineNum">    2132 </span>            : #endif
-<span class="lineNum">    2133 </span><span class="lineCov">       8675 : }</span>
+<span class="lineNum">    2133 </span><span class="lineCov">      10212 : }</span>
 <span class="lineNum">    2134 </span>            : 
 <span class="lineNum">    2135 </span>            : // vector&lt;bool&gt;
 <span class="lineNum">    2136 </span>            : 
@@ -3366,20 +3366,20 @@
 <span class="lineNum">    3304 </span>            : };
 <span class="lineNum">    3305 </span>            : 
 <span class="lineNum">    3306 </span>            : template &lt;class _Tp, class _Allocator&gt;
-<span class="lineNum">    3307 </span>            : inline _LIBCPP_INLINE_VISIBILITY
+<a name="3307"><span class="lineNum">    3307 </span>            : inline _LIBCPP_INLINE_VISIBILITY</a>
 <span class="lineNum">    3308 </span>            : bool
 <span class="lineNum">    3309 </span>            : operator==(const vector&lt;_Tp, _Allocator&gt;&amp; __x, const vector&lt;_Tp, _Allocator&gt;&amp; __y)
 <span class="lineNum">    3310 </span>            : {
-<span class="lineNum">    3311 </span>            :     const typename vector&lt;_Tp, _Allocator&gt;::size_type __sz = __x.size();
-<span class="lineNum">    3312 </span>            :     return __sz == __y.size() &amp;&amp; _VSTD::equal(__x.begin(), __x.end(), __y.begin());
+<span class="lineNum">    3311 </span><span class="lineCov">        574 :     const typename vector&lt;_Tp, _Allocator&gt;::size_type __sz = __x.size();</span>
+<span class="lineNum">    3312 </span><span class="lineCov">       1721 :     return __sz == __y.size() &amp;&amp; _VSTD::equal(__x.begin(), __x.end(), __y.begin());</span>
 <span class="lineNum">    3313 </span>            : }
 <span class="lineNum">    3314 </span>            : 
 <span class="lineNum">    3315 </span>            : template &lt;class _Tp, class _Allocator&gt;
-<span class="lineNum">    3316 </span>            : inline _LIBCPP_INLINE_VISIBILITY
+<a name="3316"><span class="lineNum">    3316 </span>            : inline _LIBCPP_INLINE_VISIBILITY</a>
 <span class="lineNum">    3317 </span>            : bool
 <span class="lineNum">    3318 </span>            : operator!=(const vector&lt;_Tp, _Allocator&gt;&amp; __x, const vector&lt;_Tp, _Allocator&gt;&amp; __y)
 <span class="lineNum">    3319 </span>            : {
-<span class="lineNum">    3320 </span>            :     return !(__x == __y);
+<span class="lineNum">    3320 </span><span class="lineCov">          1 :     return !(__x == __y);</span>
 <span class="lineNum">    3321 </span>            : }
 <span class="lineNum">    3322 </span>            : 
 <span class="lineNum">    3323 </span>            : template &lt;class _Tp, class _Allocator&gt;

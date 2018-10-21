@@ -8,20 +8,30 @@
 #include <string>
 #include <iostream>
 #include <utility>
-#include "stdio.h"
 #include "value.hpp"
-#include "vector"
 
+#define DEFAULT_SIZE 10
+#define DOUBLE 2
+#define HALF 2
 #define HASH_TABLE std::vector<std::vector<std::pair<Key, TYPE>>>
+
+template<class TYPE>
+using hash_line = std::vector<std::pair<Key, TYPE>>;
+
+template<class TYPE>
+using hash_table = std::vector<hash_line<TYPE>>;
+//typedef std::vector<std::pair<Key, TYPE>> line;
+
 
 typedef unsigned long Hash;
 
 template<class TYPE>
 class HashTable {
 private:
+    size_t sizeInAll = 10;
+    size_t sizeNow = 0;
 
-    std::pair<unsigned int, unsigned int> tableSize; //first -- in all, second -- now
-    HASH_TABLE table;
+    hash_table<TYPE> table;
 
 public:
     Hash hashCalculate(const Key &k) const;
@@ -32,7 +42,7 @@ public:
 
     void resizeHashTable();
 
-    HASH_TABLE getTable() const;
+    hash_table<TYPE> getTable() const;
 
     void clear();
 
@@ -52,12 +62,12 @@ public:
 
     HashTable(const HashTable& b);
     friend bool operator== (const HashTable<TYPE> & a, const HashTable<TYPE> & b){
-        return a.tableSize == b.tableSize && a.table == b.table;
-    } //FIXME
+        return a.sizeNow == b.sizeNow && a.table == b.table;
+    }
 
     friend bool operator!=(const HashTable<TYPE> & a, const HashTable<TYPE> & b) {
-        return a.tableSize != b.tableSize && a.table != b.table;
-    } //FIXME
+        return a.sizeNow != b.sizeNow && a.table != b.table;
+    }
 
     void operator=(const HashTable<TYPE>& b);
 
@@ -67,51 +77,50 @@ public:
 
 
 template<class TYPE>
-HASH_TABLE HashTable<TYPE>::getTable() const{
+hash_table<TYPE> HashTable<TYPE>::getTable() const{
     return table;
 }
 
 template<class TYPE>
 HashTable<TYPE>::HashTable() {
-    tableSize.first = 10;
-    tableSize.second = 0;
-    table.resize(tableSize.first);
+    table.resize(sizeInAll);
 }
 
 
 
 template<class TYPE>
 void HashTable<TYPE>::swap(HashTable &b) {
-    auto tmp = this->table;
-    this->table = b.table;
-    b.table = this->table;
+    std::swap(table, b.table);
+    std::swap(sizeInAll, b.sizeInAll);
+    std::swap(sizeNow, b.sizeNow);
 }
 
 template<class TYPE>
 bool HashTable<TYPE>::insert(const Key &k, const TYPE &v) {
     Hash hashV = hashCalculate(k);
-    this->table[hashV].push_back(make_pair(k, v));
-    if (++tableSize.second > tableSize.first / 2)
+    table[hashV].push_back(make_pair(k, v));
+    if (++sizeNow > sizeInAll / HALF)
         resizeHashTable();
     return true;
 }
 
+//http://www.cyberforum.ru/algorithms/thread111126.html
 template<class TYPE>
 Hash HashTable<TYPE>::hashCalculate(const Key &key) const {
     Hash hash = 137;
     for (char i : key) {
         hash = i + (hash << 6) + (hash << 16) - hash;
     }
-    return hash % tableSize.first;
+    return hash % sizeInAll;
 }
 
 template<class TYPE>
 void HashTable<TYPE>::resizeHashTable() {
-    tableSize.first *= 2;
-    HASH_TABLE oldMap = this->table;
+    sizeInAll *= DOUBLE;
+    hash_table<TYPE> oldMap = table;
     table.clear();
-    table.resize(tableSize.first);
-    for (int i = tableSize.first / 2 - 1; i >= 0; --i) {
+    table.resize(sizeInAll);
+    for (int i = static_cast<int>(sizeInAll / HALF - 1); i >= 0; --i) {
         while (!oldMap[i].empty()) {
             this->table[hashCalculate(oldMap[i].back().first)].push_back(\
                    make_pair(oldMap[i].back().first, oldMap[i].back().second));
@@ -124,9 +133,9 @@ void HashTable<TYPE>::resizeHashTable() {
 template<class TYPE>
 void HashTable<TYPE>::clear() {
     this->table.clear();
-    tableSize.first = 10;
-    table.resize(tableSize.first);
-    tableSize.second = 0;
+    sizeInAll = DEFAULT_SIZE;
+    table.resize(sizeInAll);
+    sizeNow = 0;
 }
 
 template<class TYPE>
@@ -160,40 +169,25 @@ bool HashTable<TYPE>::contains(const Key &k) const {
 
 template<class TYPE>
 bool HashTable<TYPE>::empty() const {
-    for(auto line : table){
-        if(line.size() != 0)
-            return false;
-    }
-    return true;
+    return sizeNow == 0;
 }
 
 template<class TYPE>
 size_t HashTable<TYPE>::size() const {
-    size_t size = 0;
-    for(auto line : table){
-        if(line.size() != 0)
-            size+=line.size();
-    }
-    return size;
+    return sizeNow;
 }
 
 template<class TYPE>
 TYPE & HashTable<TYPE>::operator[](const Key &k) {
     Hash hashKey = hashCalculate(k);
-    if (table[hashKey].size() == 0){
-        TYPE a;
-        insert(k,a);
-        return a;
-    }
-    if (table[hashKey].size() >= 1) {
+    if (table[hashKey].size() > 0) {
         for (int i = 0; i < table[hashKey].size(); ++i) {
             if (table[hashKey][i].first == k)
                 return table[hashKey][i].second;
         }
     }
-    TYPE a;
-    insert(k,a);
-    return a;
+    table[hashKey].push_back(make_pair(k,TYPE()));
+    return table[hashKey].back().second;
 }
 
 template<class TYPE>
@@ -230,41 +224,14 @@ const Value &HashTable<TYPE>::at(const Key &k) const {
 template<class TYPE>
 HashTable<TYPE>::HashTable(const HashTable<TYPE> &b) {
     this->table = b.table;
-    this->tableSize = b.tableSize;
+    this->sizeNow = b.sizeNow;
 }
 
 template<class TYPE>
 void HashTable<TYPE>::operator=(const HashTable<TYPE> &b) {
     this->table = b.table;
-    this->tableSize = b.tableSize;
+    this->sizeNow = b.sizeNow;
 }
-/*template<class TYPE>
-bool operator==(const HashTable<TYPE> &a, const HashTable<TYPE> &b) {
-    return a.tableSize == b.tableSize && a.table == b.table;
-
-    /*for (int i = 0; i < a.getTable().size(); ++i) {
-        for (int j = 0; j < a.getTable()[i].size(); ++i) {
-            if((a.table[i][j].first == b.table[i][j].first)\
-                         && (a.table[i][j].second == b.table[i][j].second)\
-                         && (a.tableSize == b.tableSize))
-                return true;
-        }
-    }
-}
-
-template<class TYPE>
-bool operator!=(const HashTable<TYPE> &a, const HashTable<TYPE> &b) {
-    /*for (int i = 0; i < a.getTable().size(); ++i) {
-        for (int j = 0; j < a.getTable()[i].size(); ++i) {
-            if((a.table[i][j].first != b.table[i][j].first)\
-                         || (a.table[i][j].second != b.table[i][j].second)\
-                         || (a.tableSize != b.tableSize))
-                return true;
-        }
-    }
-}
-
-*/
 
 
 

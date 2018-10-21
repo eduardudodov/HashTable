@@ -2,7 +2,7 @@
 #include "value.hpp"
 #include "gtest/gtest.h"
 #include <cstdlib>
-#define N 1000
+#define N 100
 
 Key randomString(size_t length) {
     auto randchar = []() -> char {
@@ -11,7 +11,7 @@ Key randomString(size_t length) {
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                 "abcdefghijklmnopqrstuvwxyz";
         const size_t maxIndex = (sizeof(charset) - 1);
-        return charset[rand() % maxIndex];
+        return charset[rand() % maxIndex];//????????????????????????????
     };
     Key str(length, 0);
     std::generate_n(str.begin(), length, randchar);
@@ -180,11 +180,7 @@ TEST(hashTableTest, assignmentTest){
         }
     }
     h_1 = h_0;
-    while (!keys_0.empty()) {
-        EXPECT_TRUE(h_1.contains(keys_0.back()));
-        keys_0.pop_back();
-    }
-
+    EXPECT_TRUE(h_1 == h_0);
 }
 
 TEST(hashTableTest, constAtTest){
